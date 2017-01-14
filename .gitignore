@@ -1,0 +1,19 @@
+.DS_Store
+Thumbs.db
+db.json
+*.log
+node_modules/
+public/
+.deploy*/
+
+### Example user template
+
+# IntelliJ project files
+.idea_modules/
+.idea
+*.iml
+*.ipr
+*.iws
+out
+/out/
+gen
