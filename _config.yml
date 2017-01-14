@@ -9,6 +9,7 @@ description: This is Asion Lu's blog.
 author: Asion Lu
 language: zh-CN
 timezone: Asia/Shanghai
+favicon: /assets/img/favicon.ico
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -46,6 +47,9 @@ highlight:
 # Category & Tag
 default_category: uncategorized
 category_map:
+  programming: programming
+  life: life
+  other: other
 tag_map:
 
 # Date / Time format
@@ -63,7 +67,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: material #landscape
+theme: hueman #hueman #yilia #material #landscape
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -72,3 +76,27 @@ deploy:
   repo: git@github.com:luxuexian99/luxuexian99.github.io.git
   branch: master
 
+
+feed:
+  type: atom
+  path: atom.xml
+  limit: 100
+
+#jsonContent:
+#  meta: false
+#  pages: false
+#  posts:
+#    title: true
+#    date: true
+#    path: true
+#    text: true
+#    raw: false
+#    content: false
+#    slug: false
+#    updated: false
+#    comments: false
+#    link: false
+#    permalink: false
+#    excerpt: false
+#    categories: false
+#    tags: true

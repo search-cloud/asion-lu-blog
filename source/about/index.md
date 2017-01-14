@@ -1,11 +1,10 @@
 ---
-title: About
-date: 2017-01-14 16:59:50
-tags:
+title: about
+date: 2017-01-14 21:18:29
 ---
 # About
 
-![Asion Lugit](/assets/img/avatar.png)
+![logo](/assets/img/avatar.png)
 
 [Asion Lu](https://github.com/luxuexian99)
 
