@@ -84,35 +84,11 @@
   </entry>
   
   <entry>
-    <title>About</title>
-    <link href="http://luxuexian99.com/posts/uncategorized/2017-01-14-about.html"/>
-    <id>http://luxuexian99.com/posts/uncategorized/2017-01-14-about.html</id>
-    <published>2017-01-14T08:59:50.000Z</published>
-    <updated>2017-01-17T03:18:46.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="About"><a href="#About" class="headerlink" title="About"></a>About</h1><p><img src="/assets/img/avatar.png" alt="Asion Lugit"></p>
-<p><a href="https://github.com/luxuexian99" target="_blank" rel="external">Asion Lu</a></p>
-<p><a href="https://luxuexian99@gmail.com" target="_blank" rel="external">luxuexian99@gmail.com</a></p>
-<p><a href="https://github.com/luxuexian99" title="https://github.com/luxuexian99" target="_blank" rel="external">Asion Lu’s github</a></p>
-<p>I’m not a programmer, I am a farmer!</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;About&quot;&gt;&lt;a href=&quot;#About&quot; class=&quot;headerlink&quot; title=&quot;About&quot;&gt;&lt;/a&gt;About&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;/assets/img/avatar.png&quot; alt=&quot;Asion Lugit&quot;&gt;&lt;/p&gt;
-&lt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://luxuexian99.com/posts/programming/2016-10-27-hello-world.html"/>
-    <id>http://luxuexian99.com/posts/programming/2016-10-27-hello-world.html</id>
+    <title>Hexo Quick Start</title>
+    <link href="http://luxuexian99.com/posts/programming/2016-10-27-hexo-quick-start.html"/>
+    <id>http://luxuexian99.com/posts/programming/2016-10-27-hexo-quick-start.html</id>
     <published>2016-10-26T20:56:25.000Z</published>
-    <updated>2017-01-17T08:46:53.000Z</updated>
+    <updated>2017-01-17T13:19:56.000Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
@@ -135,6 +111,148 @@
     
     
       <category term="hexo" scheme="http://luxuexian99.com/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Git版本控制与Git Flow工作流程</title>
+    <link href="http://luxuexian99.com/posts/programming/2016-08-26-git-flow.html"/>
+    <id>http://luxuexian99.com/posts/programming/2016-08-26-git-flow.html</id>
+    <published>2016-08-26T12:33:25.000Z</published>
+    <updated>2017-01-17T13:18:44.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="GIT版本控制与工作流程"><a href="#GIT版本控制与工作流程" class="headerlink" title="GIT版本控制与工作流程"></a>GIT版本控制与工作流程</h2><p>修订历史记录</p>
+<blockquote>
+<p>日期：2016-08-26<br>版本：0.1<br>修订人：Asion Lu<br>备注：修订版</p>
+</blockquote>
+<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><h3 id="编写的目的"><a href="#编写的目的" class="headerlink" title="编写的目的"></a>编写的目的</h3><ul>
+<li>通过规范化的流程，使得产品、开发与测试等各个部门更高效的协同工作。</li>
+<li>通过规范化的流程使得产品高效稳定运行。</li>
+</ul>
+<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>在多组员，多项目等环境进行协同工作时，如果没有统一规范、统一流程，则会导致额外的工作量，甚至会做无用功。所以要减少版本冲突，减轻不必要的工作，就需要规范化的工作流程。</p>
+<h2 id="总则"><a href="#总则" class="headerlink" title="总则"></a>总则</h2><ul>
+<li><strong>统一使用Git作为版本控制的主要工具。</strong></li>
+<li><strong>统一使用GitFlow流程管理控制版本。</strong></li>
+</ul>
+<h3 id="提交的准则"><a href="#提交的准则" class="headerlink" title="提交的准则"></a>提交的准则</h3><ol>
+<li><strong>除了源码相关的东西之外，其他build产生的东西（如：maven的target文件夹，.idea文件夹等），均不能提交进入源码仓库，添加到.gitignore文件中忽略掉。</strong></li>
+<li><strong>撰写规范的提交说明。一份好的提交说明可以帮助协作者更轻松更有效地配合工作。</strong></li>
+<li><strong>要严格按照我们指定的流程切换到指定分支，开发相应的功能。</strong></li>
+</ol>
+<h3 id="分支简述"><a href="#分支简述" class="headerlink" title="分支简述"></a>分支简述</h3><p>我们使用的分支流程：<br><img src="/assets/img/git-flow/01.svg" alt="主要分支"></p>
+<ul>
+<li>天蓝色圆点所在的线为我们源码的主线（master）。</li>
+<li>天蓝色方形指向的节点就是每一个发布版本的标签（tag）。</li>
+<li>紫色圆点所在的线为主要分支线（develop）。</li>
+<li>橙色圆点所在的线为新功能开发分支线（feature）。</li>
+<li>绿色圆点所在的线为<strong>新版本发布</strong>线（release）。</li>
+<li>红色圆点所在的线为发布版本bug修复线（hotfix）。</li>
+</ul>
+<h4 id="主分支说明"><a href="#主分支说明" class="headerlink" title="主分支说明"></a>主分支说明</h4><p>代替原来的单个主线（master），我们使用两个分支来记录源码轨迹：</p>
+<ol>
+<li>原来的master分支用来记录官方发布轨迹；</li>
+<li>新的develop分支是一个集成分支，用来记录开发新功能的轨迹。<br><img src="/assets/img/git-flow/02.svg" alt="develop"><br>除了master主线和develop主分支线，其他的分支都是临时的分支，有一定的生命周期的，其余的工作流程分支都是围绕这两个分支之间的区别进行的。</li>
+</ol>
+<h4 id="其他分支说明"><a href="#其他分支说明" class="headerlink" title="其他分支说明"></a>其他分支说明</h4><ul>
+<li><strong>新功能分支（Feature Branches）</strong><br>  每一个新的功能都应该创建一个独立的分支，从develop分支中派生出来。当功能完成后，要合并（merged）回develop分支，合并后它的生命周期就结束。新功能分支不会与master分支有直接的交汇。如图：<br><img src="/assets/img/git-flow/03.svg" alt="feature"><br>  注意：对于所有意图和目的，新功能分支会合并到develop分支。但是，这个Gitflow工作流不会在此结束。</li>
+<li><strong>发布分支（Release Branches）</strong><br>  一旦开发的功能已经满足发布条件（或预定发布日期接近），应该合并所有满足发布条件的新功能分支到develop分支中，然后，开出一个发布分支（Release），开始准备一个发布版本。在这个分支上，不能再添加新的功能，只有bug修复和该版本为导向的任务。一旦到了发布日期，Release就要合并回master发布，并且，打出版本标签。另外，还需要合并回develop分支。<br><img src="/assets/img/git-flow/04.svg" alt="release"><br>   使用一个专门的分支来准备发布版本，使得一个团队能对当前版本进行抛光，而另一个团队继续为下一个版本的功能做准备。它还创造了良好定义的发展阶段（例如，很容易说，“本周我们正在准备4.0版”，而且真实地看到它在库中的结构）。</li>
+<li><strong>维护分支（Maintenance Branches）</strong><br>  维护分支也就是线上bug修复分支，使用来快速修复生产环境的紧急问题。<br><img src="/assets/img/git-flow/05.svg" alt="Maintenance"><br>  这个分支是唯一一个开放过程中直接从master分支派生来的分支。快速的修复问题后，它应该被合并回master和develop（或者当前发布分支），然后，master分支需要打一个版本标签。<br>  一个专门的错误修复开发线，可以让团队在不等待下一个发布周期，导致中断工作流程情况下解决问题。可以将维护分支当做主要的问题修复分支，与master并行。</li>
+</ul>
+<h3 id="命名约定"><a href="#命名约定" class="headerlink" title="命名约定"></a>命名约定</h3><ul>
+<li><strong>主分支名称：master</strong></li>
+<li><strong>主开发分支名称：develop</strong></li>
+<li><strong>标签（tag）名称：v*.RELEASE，其中”*“ 为版本号，“RELEASE”大写，如：v1.0.0.RELEASE</strong></li>
+<li><strong>新功能开发分支名称：feature-* or feature/*，其中“*” 为新功能简述，如：feature-item-activity-list</strong></li>
+<li><strong>发布分支名称：release-* or release/*，其中* 为版本号，“release”小写，如：release-1.0.0</strong></li>
+<li><strong>master的bug修复分支名称：hotfix-* or hotfix/* ，其中* 为bug简述，如：hotfix/item-update-bug</strong><h2 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h2>下面具体演示如何使用工作流来管理版本发布周期。假设我们已经存在或创建了一个源码中央存储仓库。</li>
+</ul>
+<h3 id="工作流的基础"><a href="#工作流的基础" class="headerlink" title="工作流的基础"></a>工作流的基础</h3><p><strong>创建develop分支</strong><br><img src="/assets/img/git-flow/06.svg" alt="develop"></p>
+<ul>
+<li><p>项目负责人在本地master基础上创建一个develop分支，然后，推送到服务器；</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git branch develop</div><div class="line">git push -u origin develop</div></pre></td></tr></table></figure>
+</li>
+<li><p>其他开发人员，需要克隆develop中央仓库的源码，创建一个develop的轨迹版本；如果，已经克隆过该项目，则，不需要执行以下第一条命令。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> git@bitbucket.org:ytx-dev/ytx-demo.git</div><div class="line">git checkout -b develop origin/develop</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>develop这个分支将包含项目的完整历史记录，而master将包含缩略版本。<br><strong> 假设开始以下所有的流程之前，都已经创建好develop分支。</strong></p>
+<h3 id="新功能开发流程"><a href="#新功能开发流程" class="headerlink" title="新功能开发流程"></a>新功能开发流程</h3><ol>
+<li><p>新建feature分支<br> <img src="/assets/img/git-flow/07.svg" alt="feature"><br> 基于develop分支创建新功能分支：</p>
+ <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout -b feature/demo develop</div></pre></td></tr></table></figure>
+<p> 推送到远程仓库，共享：</p>
+ <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push</div></pre></td></tr></table></figure>
+<p> <strong>所有开发此新功能的人员，都在此分支上开发提交代码。</strong></p>
+ <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git status</div><div class="line">git add &lt;some-file&gt;</div><div class="line">git commit -m <span class="string">"Add some-file."</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>完成新功能开发（合并feature分支到develop）<br> <img src="/assets/img/git-flow/08.svg" alt="feature"><br> <strong>当确定新功能开发完成，且联调测试通过，并且新功能负责人已经得到合并feature分支到develop分支的允许；这样才能合并feature分支到develop。</strong></p>
+ <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git pull origin develop</div><div class="line">   git checkout develop</div><div class="line">git merge feature/demo</div><div class="line">git push</div><div class="line">git branch <span class="_">-d</span> feature/demo</div></pre></td></tr></table></figure>
+<p> 第一条命令是确保在合并新功能之前，develop分支是最新的。<br> 注意：</p>
+<ul>
+<li><strong>新功能分支，永远不要直接合并到master分支。</strong></li>
+<li><strong>合并可能会有冲突，应该谨慎处理冲突。</strong></li>
+</ul>
+</li>
+<li><p>在测试环境发布develop分支代码（提交测试）</p>
+</li>
+</ol>
+<h3 id="线上版本发布流程"><a href="#线上版本发布流程" class="headerlink" title="线上版本发布流程"></a>线上版本发布流程</h3><ol>
+<li><p>从develop中创建准备发布的release分支<br> <img src="/assets/img/git-flow/09.svg" alt="develop"><br> 当主测试流程完成，源码已经趋近于稳定状态，应该准备一个发布版本，确立版本号：</p>
+ <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout -b release-0.1.0 develop</div></pre></td></tr></table></figure>
+<p> 推送到远程仓库共享：</p>
+ <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push</div></pre></td></tr></table></figure>
+<p> 这个分支是清理准备发布、 整体回归测试、 更新文档，和做其他任何系统即将发布的事情。</p>
+</li>
+<li>继续抛光改bug</li>
+<li><p>release分支合并到master发布<br> <img src="/assets/img/git-flow/10.svg" alt="release"><br> 一旦已经满足发布条件（或已经到了预定发布日期），应该把release分支合并到master分支和develop分支中，然后，使用master发布新版本。合并release分支到develop分支是很重要的，要让release上修改的东西能在后续的开发分支中生效。</p>
+ <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git checkout master</div><div class="line">git merge release-0.1.0</div><div class="line">git push</div></pre></td></tr></table></figure>
+</li>
+<li><p>release分支合并到develop</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">   git checkout develop</div><div class="line">git merge release-0.1.0</div><div class="line">git push</div><div class="line">git branch -d release-0.1.0</div></pre></td></tr></table></figure>
+</li>
+<li><p>打标签<br> Release分支在功能开发分支（develop）和公共发布版（master）中，充当一个缓冲的作用。每当有源码合并到master中的时候，应该在master上打一个标签，以便后续跟踪查阅。</p>
+ <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git tag <span class="_">-a</span> 0.1.0.RELEASE -m <span class="string">"Initial public release"</span> master</div><div class="line">git push --tags</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="线上Bug修复流程"><a href="#线上Bug修复流程" class="headerlink" title="线上Bug修复流程"></a>线上Bug修复流程</h3><p>当终端用户，反馈系统有bug时，为了处理bug，需要从master中创建出保养分支；等到bug修复完成，需要合并回master：</p>
+<ol>
+<li><p>创建hotfix分支</p>
+ <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout -b issue-<span class="comment">#001 master</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>修改bug Fix the bug</p>
+</li>
+<li><p>完成修复，合并到master发布<br> <img src="/assets/img/git-flow/11.svg" alt="merge"></p>
+ <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git checkout master</div><div class="line">git merge issue-<span class="comment">#001</span></div><div class="line">git push</div></pre></td></tr></table></figure>
+</li>
+<li><p>打标签</p>
+ <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git tag <span class="_">-a</span> 0.1.1.RELEASE -m <span class="string">"Initial public release"</span> master</div><div class="line">git push --tags</div></pre></td></tr></table></figure>
+</li>
+<li><p>合并到develop</p>
+ <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git checkout develop</div><div class="line">git merge issue-<span class="comment">#001</span></div><div class="line">git push</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
+<li><a href="https://git-scm.com/book/zh/v2" target="_blank" rel="external">git-book</a></li>
+<li><a href="https://www.atlassian.com/git/tutorials/what-is-version-control" target="_blank" rel="external">what-is-version-control</a></li>
+<li><a href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow" target="_blank" rel="external">gitflow-workflow</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;GIT版本控制与工作流程&quot;&gt;&lt;a href=&quot;#GIT版本控制与工作流程&quot; class=&quot;headerlink&quot; title=&quot;GIT版本控制与工作流程&quot;&gt;&lt;/a&gt;GIT版本控制与工作流程&lt;/h2&gt;&lt;p&gt;修订历史记录&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;日期：
+    
+    </summary>
+    
+      <category term="programming" scheme="http://luxuexian99.com/categories/programming/"/>
+    
+    
+      <category term="git" scheme="http://luxuexian99.com/tags/git/"/>
+    
+      <category term="git-flow" scheme="http://luxuexian99.com/tags/git-flow/"/>
+    
+      <category term="VCS" scheme="http://luxuexian99.com/tags/VCS/"/>
     
   </entry>
   
