@@ -4,7 +4,7 @@
 
 # Site
 title: luxuexian99
-subtitle: asion_lu_blog
+subtitle: I'm not a programmer, I am a farmer!
 description: This is Asion Lu's blog.
 author: Asion Lu
 language: zh-CN
@@ -15,7 +15,8 @@ favicon: /assets/img/favicon.ico
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://luxuexian99.com
 root: /
-permalink: :year/:month/:day/:title/
+#permalink: :year/:month/:day/:title/
+permalink: posts/:category/:year-:month-:day-:title.html
 permalink_defaults:
 
 # Directory
@@ -67,7 +68,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: hueman #hueman #yilia #material #landscape
+theme: next #hueman #yilia #next #material #landscape
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -82,21 +83,21 @@ feed:
   path: atom.xml
   limit: 100
 
-#jsonContent:
-#  meta: false
-#  pages: false
-#  posts:
-#    title: true
-#    date: true
-#    path: true
-#    text: true
-#    raw: false
-#    content: false
-#    slug: false
-#    updated: false
-#    comments: false
-#    link: false
-#    permalink: false
-#    excerpt: false
-#    categories: false
-#    tags: true
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: true
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: false
+    tags: true
