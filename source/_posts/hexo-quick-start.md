@@ -1,5 +1,5 @@
 ---
-title: Hello World
+title: Hexo Quick Start
 date: 2016-10-27 04:56:25
 thumbnail: /assets/img/habit-stick-508x270.jpg
 tags: hexo

@@ -1,12 +1,12 @@
 ---
-title: about
+title: About
 date: 2017-01-14 21:18:29
 ---
 # About
 
 ![logo](/assets/img/avatar.png)
 
-[Asion Lu](https://github.com/luxuexian99)
+[Asion Lu](https://luxuexian99.github.io/)
 
 [luxuexian99@gmail.com](https://luxuexian99@gmail.com)
 
