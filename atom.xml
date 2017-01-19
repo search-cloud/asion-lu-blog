@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Asoin Lu</title>
+  <title>Asoin Lu&#39;s Blog</title>
   <subtitle>I&#39;m not a programmer, I am a farmer!</subtitle>
   <link href="/atom.xml" rel="self"/>
   
@@ -116,10 +116,10 @@
   
   <entry>
     <title>Git版本控制与Git Flow工作流程</title>
-    <link href="http://luxuexian99.com/posts/programming/2016-08-26-git-flow.html"/>
-    <id>http://luxuexian99.com/posts/programming/2016-08-26-git-flow.html</id>
+    <link href="http://luxuexian99.com/posts/programming/VCS/git/2016-08-26-git-flow.html"/>
+    <id>http://luxuexian99.com/posts/programming/VCS/git/2016-08-26-git-flow.html</id>
     <published>2016-08-26T12:33:25.000Z</published>
-    <updated>2017-01-17T13:18:44.000Z</updated>
+    <updated>2017-01-17T14:04:22.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="GIT版本控制与工作流程"><a href="#GIT版本控制与工作流程" class="headerlink" title="GIT版本控制与工作流程"></a>GIT版本控制与工作流程</h2><p>修订历史记录</p>
 <blockquote>
@@ -246,6 +246,10 @@
     </summary>
     
       <category term="programming" scheme="http://luxuexian99.com/categories/programming/"/>
+    
+      <category term="VCS" scheme="http://luxuexian99.com/categories/programming/VCS/"/>
+    
+      <category term="git" scheme="http://luxuexian99.com/categories/programming/VCS/git/"/>
     
     
       <category term="git" scheme="http://luxuexian99.com/tags/git/"/>
