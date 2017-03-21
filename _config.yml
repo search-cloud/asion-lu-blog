@@ -4,27 +4,27 @@
 
 # Site
 title: Asoin Lu's Blog
-subtitle: I'm not a programmer, I am a farmer!
-description: This is Asion Lu's blog.
+subtitle: I'm not a programmer, I'm a technology farmer!
+description: I'm not a programmer, I'm a technology farmer!
 author: Asion Lu
-language: zh-CN
+language: en #zh-CN
 timezone: Asia/Shanghai
 favicon: /assets/img/favicon.ico
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://luxuexian99.com
+url: http://luxuexian99.github.io
 root: /
 #permalink: :year/:month/:day/:title/
-permalink: posts/:category/:year-:month-:day-:title.html
+permalink: _posts/:category/:year-:month-:day-:title.html
 permalink_defaults:
 
 # Directory
 source_dir: source
 public_dir: public
-tag_dir: tags
-archive_dir: archives
-category_dir: categories
+tag_dir: _tags
+archive_dir: _archives
+category_dir: _categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
@@ -68,7 +68,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: next #hueman #yilia #next #material #landscape
+theme: jekyll #maupassant #jekyll #hueman #yilia #next #material #landscape
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -81,23 +81,33 @@ deploy:
 feed:
   type: atom
   path: atom.xml
-  limit: 100
+  limit: 20
 
-jsonContent:
-  meta: false
-  pages: false
-  posts:
-    title: true
-    date: true
-    path: true
-    text: true
-    raw: false
-    content: false
-    slug: false
-    updated: false
-    comments: false
-    link: false
-    permalink: false
-    excerpt: false
-    categories: false
-    tags: true
+jekyll:
+  project: false
+  selfIntro: true
+  sign_image: /assets/img/avatar.png
+
+# social
+social:
+  github: https://github.com/luxuexian99
+  weibo: http://weibo.com/luHsian
+
+#jsonContent:
+#  meta: false
+#  pages: false
+#  posts:
+#    title: true
+#    date: true
+#    path: true
+#    text: true
+#    raw: false
+#    content: false
+#    slug: false
+#    updated: false
+#    comments: false
+#    link: false
+#    permalink: false
+#    excerpt: false
+#    categories: false
+#    tags: true
