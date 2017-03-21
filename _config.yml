@@ -16,15 +16,15 @@ favicon: /assets/img/favicon.ico
 url: http://luxuexian99.github.io
 root: /
 #permalink: :year/:month/:day/:title/
-permalink: _posts/:category/:year-:month-:day-:title.html
+permalink: posts/:category/:year-:month-:day-:title.html
 permalink_defaults:
 
 # Directory
 source_dir: source
 public_dir: public
-tag_dir: _tags
-archive_dir: _archives
-category_dir: _categories
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
