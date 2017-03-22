@@ -9,7 +9,7 @@ description: I'm not a programmer, I'm a technology farmer!
 author: Asion Lu
 language: en #zh-CN
 timezone: Asia/Shanghai
-favicon: /assets/img/favicon.ico
+favicon: /assets/img/favicon.png
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -86,12 +86,16 @@ feed:
 jekyll:
   project: false
   selfIntro: true
-  sign_image: /assets/img/avatar.png
+  sign_image: /assets/img/compiler.jpg
 
 # social
 social:
   github: https://github.com/luxuexian99
   weibo: http://weibo.com/luHsian
+  twitter: https://twitter.com/AsoinLu
+  facebook: https://www.facebook.com/AsionLu/
+  google-plus: https://plus.google.com/u/0/104844052523179213676
+  wechat: HsianLu
 
 #jsonContent:
 #  meta: false

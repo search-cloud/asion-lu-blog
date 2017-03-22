@@ -4,7 +4,7 @@ date: 2017-01-14 21:18:29
 categories: about
 tags:
 ---
-.
+*
 ====
 
 ### I'm not a programmer, I'm a technology farmer!

@@ -3,7 +3,6 @@ title: Git版本控制与Git Flow工作流程
 date: 2016-08-26 20:33:25
 tags: [git, git-flow, VCS]
 categories:
-  - programming
   - VCS
   - git
 ---

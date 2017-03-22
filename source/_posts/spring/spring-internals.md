@@ -2,7 +2,7 @@
 title: 深入解析Spring架构与设计原理
 date: 2017-02-06 23:16:42
 tags: [spring]
-categories: [programming, java, spring]
+categories: [java, spring]
 ---
 
 Spring Internals 深入解析Spring架构与设计原理
