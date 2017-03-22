@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next mist use-motion" lang="zh-CN">
+<html class="theme-next mist use-motion" lang="en">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -15,6 +15,9 @@
 
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
 
 
 
@@ -68,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="hexo," />
+  <meta name="keywords" content="spring," />
 
 
 
@@ -79,26 +82,59 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico?v=5.1.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.png?v=5.1.0" />
 
 
 
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="description" content="Spring Internals 深入解析Spring架构与设计原理Preface
+Spring的设计理念和架构
+Spring core
+Spring AOP
+Spring MVC
+Spring Security
+Spring Transaction
+Spring Data
+Spring Boot
+Spring Cloud
+Spring的设计理念和架构
+
+Spring core   Spring">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo Quick Start">
-<meta property="og:url" content="http://luxuexian99.com/posts/programming/2016-10-27-hexo-quick-start.html">
+<meta property="og:title" content="深入解析Spring架构与设计原理">
+<meta property="og:url" content="http://luxuexian99.github.io/posts/java/spring/2017-02-06-spring/spring-internals.html">
 <meta property="og:site_name" content="Asoin Lu's Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2017-01-17T13:19:56.000Z">
+<meta property="og:description" content="Spring Internals 深入解析Spring架构与设计原理Preface
+Spring的设计理念和架构
+Spring core
+Spring AOP
+Spring MVC
+Spring Security
+Spring Transaction
+Spring Data
+Spring Boot
+Spring Cloud
+Spring的设计理念和架构
+
+Spring core   Spring">
+<meta property="og:updated_time" content="2017-03-22T08:03:21.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo Quick Start">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="深入解析Spring架构与设计原理">
+<meta name="twitter:description" content="Spring Internals 深入解析Spring架构与设计原理Preface
+Spring的设计理念和架构
+Spring core
+Spring AOP
+Spring MVC
+Spring Security
+Spring Transaction
+Spring Data
+Spring Boot
+Spring Cloud
+Spring的设计理念和架构
+
+Spring core   Spring">
 
 
 
@@ -107,12 +143,12 @@ Quick">
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"always"},
+    sidebar: {"position":"right","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
     duoshuo: {
       userId: '0',
-      author: '博主'
+      author: 'Author'
     },
     algolia: {
       applicationID: '',
@@ -126,18 +162,22 @@ Quick">
 
 
 
-  <link rel="canonical" href="http://luxuexian99.com/posts/programming/2016-10-27-hexo-quick-start.html"/>
+  <link rel="canonical" href="http://luxuexian99.github.io/posts/java/spring/2017-02-06-spring/spring-internals.html"/>
 
 
 
 
 
-  <title> Hexo Quick Start | Asoin Lu's Blog </title>
+  <title> 深入解析Spring架构与设计原理 | Asoin Lu's Blog </title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
+
+
+
+
 
 
 
@@ -153,31 +193,33 @@ Quick">
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
 
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Asoin Lu's Blog</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Asoin Lu's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">A little bit.</p>
+      
   </div>
-    
-      <p class="site-subtitle">I'm not a programmer, I am a farmer!</p>
-    
-</div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
 
 <nav class="site-nav">
@@ -192,47 +234,7 @@ Quick">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-life">
-          <a href="/life" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-paint-brush"></i> <br />
-            
-            生活
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-programming">
-          <a href="/programming" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-cloud"></i> <br />
-            
-            编程
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
+            Home
           </a>
         </li>
       
@@ -242,7 +244,47 @@ Quick">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            归档
+            Blog
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-java">
+          <a href="/categories/java" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-cloud"></i> <br />
+            
+            Java
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-life">
+          <a href="/categories/life" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-paint-brush"></i> <br />
+            
+            Life
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
           </a>
         </li>
       
@@ -252,7 +294,7 @@ Quick">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            标签
+            Tags
           </a>
         </li>
       
@@ -285,20 +327,17 @@ Quick">
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://luxuexian99.com/posts/programming/2016-10-27-hexo-quick-start.html">
+    <link itemprop="mainEntityOfPage" href="http://luxuexian99.github.io/posts/java/spring/2017-02-06-spring/spring-internals.html">
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Asion Lu">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/assets/img/avatar.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Asoin Lu's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Asoin Lu's Blog" src="">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Asion Lu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/assets/img/avatar.png">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Asoin Lu's Blog">
+    </span>
 
     
       <header class="post-header">
@@ -309,7 +348,7 @@ Quick">
             
             
               
-                Hexo Quick Start
+                深入解析Spring架构与设计原理
               
             
           </h1>
@@ -322,10 +361,10 @@ Quick">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-27T04:56:25+08:00">
-                2016-10-27
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-06T23:16:42+08:00">
+                2017-02-06
               </time>
             
 
@@ -343,12 +382,23 @@ Quick">
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/programming/" itemprop="url" rel="index">
-                    <span itemprop="name">programming</span>
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/spring/" itemprop="url" rel="index">
+                    <span itemprop="name">spring</span>
                   </a>
                 </span>
 
@@ -360,22 +410,32 @@ Quick">
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/posts/java/spring/2017-02-06-spring/spring-internals.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
-
           
-          
-             <span id="/posts/programming/2016-10-27-hexo-quick-start.html" class="leancloud_visitors" data-flag-title="Hexo Quick Start">
+             <span id="/posts/java/spring/2017-02-06-spring/spring-internals.html" class="leancloud_visitors" data-flag-title="深入解析Spring架构与设计原理">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数 </span>
+                 <span class="post-meta-item-text">Visitors </span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
+          
+
           
 
           
@@ -393,15 +453,26 @@ Quick">
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <h2 id="Spring-Internals-深入解析Spring架构与设计原理"><a href="#Spring-Internals-深入解析Spring架构与设计原理" class="headerlink" title="Spring Internals 深入解析Spring架构与设计原理"></a>Spring Internals 深入解析Spring架构与设计原理</h2><h2 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h2><ul>
+<li>Spring的设计理念和架构</li>
+<li>Spring core</li>
+<li>Spring AOP</li>
+<li>Spring MVC</li>
+<li>Spring Security</li>
+<li>Spring Transaction</li>
+<li>Spring Data</li>
+<li>Spring Boot</li>
+<li>Spring Cloud</li>
+<li>Spring的设计理念和架构</li>
+</ul>
+<h3 id="Spring-core"><a href="#Spring-core" class="headerlink" title="Spring core"></a>Spring core</h3><p>   Spring core</p>
+<h3 id="Spring-AOP"><a href="#Spring-AOP" class="headerlink" title="Spring AOP"></a>Spring AOP</h3><p>   Spring AOP</p>
+<h3 id="Spring-MVC"><a href="#Spring-MVC" class="headerlink" title="Spring MVC"></a>Spring MVC</h3><p>   Spring MVC</p>
+<h3 id="Spring-Security"><a href="#Spring-Security" class="headerlink" title="Spring Security"></a>Spring Security</h3><p>   Spring Security</p>
+<h3 id="Spring-Transaction"><a href="#Spring-Transaction" class="headerlink" title="Spring Transaction"></a>Spring Transaction</h3><p>   Spring Transaction</p>
+<h3 id="Spring-Data"><a href="#Spring-Data" class="headerlink" title="Spring Data"></a>Spring Data</h3><p>   Spring Data</p>
+<h3 id="Spring-Boot"><a href="#Spring-Boot" class="headerlink" title="Spring Boot"></a>Spring Boot</h3><p>   Spring Boot</p>
+<h3 id="Spring-Cloud"><a href="#Spring-Cloud" class="headerlink" title="Spring Cloud"></a>Spring Cloud</h3><p>   Spring Cloud</p>
 
       
     </div>
@@ -420,22 +491,32 @@ Quick">
       
     </div>
 
+    <div>
+      
+        
+
+      
+    </div>
 
     <footer class="post-footer">
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag"># hexo</a>
+            <a href="/tags/spring/" rel="tag"># spring</a>
           
         </div>
+      
+
+      
+        
       
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/programming/VCS/git/2016-08-26-git-flow.html" rel="next" title="Git版本控制与Git Flow工作流程">
-                <i class="fa fa-chevron-left"></i> Git版本控制与Git Flow工作流程
+              <a href="/posts/life/2017-01-17-life/my-life-way.html" rel="next" title="道德经">
+                <i class="fa fa-chevron-left"></i> 道德经
               </a>
             
           </div>
@@ -444,8 +525,8 @@ Quick">
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/posts/life/2017-01-17-my-life.html" rel="prev" title="My Life">
-                My Life <i class="fa fa-chevron-right"></i>
+              <a href="/posts/algorithm/2017-02-10-algorithm/why-hashing.html" rel="prev" title="为什么需要HashMap数据结构？">
+                为什么需要HashMap数据结构？ <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -461,16 +542,24 @@ Quick">
 
     <div class="post-spread">
       
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58d247635b3933ad" async = "async" ></script>
+</div>
+
+      
     </div>
   </div>
 
-          
+
           </div>
           
 
 
           
   <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
     
   </div>
 
@@ -495,10 +584,10 @@ Quick">
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
+            Overview
           </li>
         </ul>
       
@@ -509,33 +598,39 @@ Quick">
                src="/assets/img/avatar.png"
                alt="Asion Lu" />
           <p class="site-author-name" itemprop="name">Asion Lu</p>
-          <p class="site-description motion-element" itemprop="description">This is Asion Lu's blog.</p>
+           
+              <p class="site-description motion-element" itemprop="description">I'm not a programmer, I'm a technology farmer!</p>
+          
         </div>
         <nav class="site-state motion-element">
-        
+
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">3</span>
-                <span class="site-state-item-name">日志</span>
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">posts</span>
               </a>
             </div>
           
 
           
+            
+            
             <div class="site-state-item site-state-categories">
-              <a href="/categories">
-                <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">分类</span>
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">categories</span>
               </a>
             </div>
           
 
           
+            
+            
             <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">5</span>
-                <span class="site-state-item-name">标签</span>
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">tags</span>
               </a>
             </div>
           
@@ -552,6 +647,62 @@ Quick">
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/luxuexian99" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/luHsian" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/AsoinLu" target="_blank" title="twitter">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.facebook.com/AsionLu/" target="_blank" title="facebook">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  facebook
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://plus.google.com/u/0/104844052523179213676" target="_blank" title="google-plus">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  google-plus
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="/assets/img/wechat.jpg" target="_blank" title="wechat">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  wechat
+                </a>
+              </span>
+            
           
         </div>
 
@@ -576,12 +727,14 @@ Quick">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Internals-深入解析Spring架构与设计原理"><span class="nav-number">1.</span> <span class="nav-text">Spring Internals 深入解析Spring架构与设计原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Preface"><span class="nav-number">2.</span> <span class="nav-text">Preface</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-core"><span class="nav-number">2.1.</span> <span class="nav-text">Spring core</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-AOP"><span class="nav-number">2.2.</span> <span class="nav-text">Spring AOP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-MVC"><span class="nav-number">2.3.</span> <span class="nav-text">Spring MVC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-Security"><span class="nav-number">2.4.</span> <span class="nav-text">Spring Security</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-Transaction"><span class="nav-number">2.5.</span> <span class="nav-text">Spring Transaction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-Data"><span class="nav-number">2.6.</span> <span class="nav-text">Spring Data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-Boot"><span class="nav-number">2.7.</span> <span class="nav-text">Spring Boot</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-Cloud"><span class="nav-number">2.8.</span> <span class="nav-text">Spring Cloud</span></a></li></ol></li></ol></div>
             
 
           </div>
         </section>
       <!--/noindex-->
+      
+
       
 
     </div>
@@ -606,11 +759,11 @@ Quick">
 
 
 <div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
-  主题 -
+  Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Mist
   </a>
@@ -623,9 +776,13 @@ Quick">
       </div>
     </footer>
 
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
   </div>
 
   
@@ -709,6 +866,22 @@ Quick">
 
 
   
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "d1f3fe001bf242d990bb6bf710d0db4f",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+
+
+
+
 
 
 
@@ -716,19 +889,9 @@ Quick">
 
   
 
-  
-      <!-- UY BEGIN -->
-      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid="></script>
-      <!-- UY END -->
-  
 
 
 
-
-  
-  
-
-  
 
   
 
@@ -843,6 +1006,7 @@ Quick">
 
   
 
+  
 
 </body>
 </html>

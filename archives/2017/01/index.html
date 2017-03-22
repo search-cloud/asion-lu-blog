@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next mist use-motion" lang="zh-CN">
+<html class="theme-next mist use-motion" lang="en">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -15,6 +15,9 @@
 
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
 
 
 
@@ -79,22 +82,22 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico?v=5.1.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.png?v=5.1.0" />
 
 
 
 
 
 
-<meta name="description" content="This is Asion Lu&apos;s blog.">
+<meta name="description" content="I&apos;m not a programmer, I&apos;m a technology farmer!">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Asoin Lu's Blog">
-<meta property="og:url" content="http://luxuexian99.com/archives/2017/01/index.html">
+<meta property="og:url" content="http://luxuexian99.github.io/archives/2017/01/index.html">
 <meta property="og:site_name" content="Asoin Lu's Blog">
-<meta property="og:description" content="This is Asion Lu&apos;s blog.">
+<meta property="og:description" content="I&apos;m not a programmer, I&apos;m a technology farmer!">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Asoin Lu's Blog">
-<meta name="twitter:description" content="This is Asion Lu&apos;s blog.">
+<meta name="twitter:description" content="I&apos;m not a programmer, I&apos;m a technology farmer!">
 
 
 
@@ -103,12 +106,12 @@
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"always"},
+    sidebar: {"position":"right","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
     duoshuo: {
       userId: '0',
-      author: '博主'
+      author: 'Author'
     },
     algolia: {
       applicationID: '',
@@ -122,18 +125,22 @@
 
 
 
-  <link rel="canonical" href="http://luxuexian99.com/archives/2017/01/"/>
+  <link rel="canonical" href="http://luxuexian99.github.io/archives/2017/01/"/>
 
 
 
 
 
-  <title> 归档 | Asoin Lu's Blog </title>
+  <title> Archive | Asoin Lu's Blog </title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
+
+
+
+
 
 
 
@@ -149,31 +156,33 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-right  page-archive  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
 
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Asoin Lu's Blog</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Asoin Lu's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">A little bit.</p>
+      
   </div>
-    
-      <p class="site-subtitle">I'm not a programmer, I am a farmer!</p>
-    
-</div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
 
 <nav class="site-nav">
@@ -188,47 +197,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-life">
-          <a href="/life" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-paint-brush"></i> <br />
-            
-            生活
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-programming">
-          <a href="/programming" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-cloud"></i> <br />
-            
-            编程
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
+            Home
           </a>
         </li>
       
@@ -238,7 +207,47 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            归档
+            Blog
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-java">
+          <a href="/categories/java" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-cloud"></i> <br />
+            
+            Java
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-life">
+          <a href="/categories/life" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-paint-brush"></i> <br />
+            
+            Life
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
           </a>
         </li>
       
@@ -248,7 +257,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            标签
+            Tags
           </a>
         </li>
       
@@ -280,7 +289,7 @@
       
         
       
-      嗯..! 目前共计 3 篇日志。 继续努力。
+      Um..! 8 posts in total. Keep on posting.
     </span>
 
     
@@ -304,9 +313,9 @@
 
       <h1 class="post-title">
         
-            <a class="post-title-link" href="/posts/life/2017-01-17-my-life.html" itemprop="url">
+            <a class="post-title-link" href="/posts/life/2017-01-17-life/my-life-way.html" itemprop="url">
               
-                <span itemprop="name">My Life</span>
+                <span itemprop="name">道德经</span>
               
             </a>
         
@@ -327,12 +336,49 @@
 
     
 
+      
+      
+      
+
+      
+      
+
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
+        
+            <a class="post-title-link" href="/posts/about/2017-01-14-about.html" itemprop="url">
+              
+                <span itemprop="name">About Asion Lu</span>
+              
+            </a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2017-01-14T21:18:29+08:00"
+              content="2017-01-14" >
+          01-14
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+    
+
   </section>
 
   
 
 
-          
+
           </div>
           
 
@@ -364,33 +410,39 @@
                src="/assets/img/avatar.png"
                alt="Asion Lu" />
           <p class="site-author-name" itemprop="name">Asion Lu</p>
-          <p class="site-description motion-element" itemprop="description">This is Asion Lu's blog.</p>
+           
+              <p class="site-description motion-element" itemprop="description">I'm not a programmer, I'm a technology farmer!</p>
+          
         </div>
         <nav class="site-state motion-element">
-        
+
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">3</span>
-                <span class="site-state-item-name">日志</span>
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">posts</span>
               </a>
             </div>
           
 
           
+            
+            
             <div class="site-state-item site-state-categories">
-              <a href="/categories">
-                <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">分类</span>
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">categories</span>
               </a>
             </div>
           
 
           
+            
+            
             <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">5</span>
-                <span class="site-state-item-name">标签</span>
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">tags</span>
               </a>
             </div>
           
@@ -408,6 +460,62 @@
 
         <div class="links-of-author motion-element">
           
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/luxuexian99" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/luHsian" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/AsoinLu" target="_blank" title="twitter">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.facebook.com/AsionLu/" target="_blank" title="facebook">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  facebook
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://plus.google.com/u/0/104844052523179213676" target="_blank" title="google-plus">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  google-plus
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="/assets/img/wechat.jpg" target="_blank" title="wechat">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  wechat
+                </a>
+              </span>
+            
+          
         </div>
 
         
@@ -420,6 +528,8 @@
 
 
       </section>
+
+      
 
       
 
@@ -445,11 +555,11 @@
 
 
 <div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
-  主题 -
+  Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Mist
   </a>
@@ -462,9 +572,13 @@
       </div>
     </footer>
 
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
   </div>
 
   
@@ -550,6 +664,22 @@
 
 
   
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "d1f3fe001bf242d990bb6bf710d0db4f",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+
+
+
+
 
 
 
@@ -557,15 +687,9 @@
 
   
 
-  
 
 
 
-
-  
-  
-
-  
 
   
 
@@ -680,6 +804,7 @@
 
   
 
+  
 
 </body>
 </html>
