@@ -6,7 +6,5 @@
 
 luxuexian99.github.io
 
-asion.club
-
 Welcome to Asion blog.
 
