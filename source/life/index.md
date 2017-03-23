@@ -1,6 +1,7 @@
 ---
 title: life
 date: 2017-01-17 15:22:34
+comments: false
 ---
 
 生活
