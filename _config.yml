@@ -4,7 +4,7 @@
 
 # Site
 title: Asoin Lu's Blog
-subtitle: I'm not a programmer, I'm a technology farmer!
+subtitle: A little bit.
 description: I'm not a programmer, I'm a technology farmer!
 author: Asion Lu
 language: en #zh-CN
@@ -68,7 +68,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: jekyll #maupassant #jekyll #hueman #yilia #next #material #landscape
+theme: next #maupassant #jekyll #hueman #yilia #next #material #landscape
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -95,23 +95,23 @@ social:
   twitter: https://twitter.com/AsoinLu
   facebook: https://www.facebook.com/AsionLu/
   google-plus: https://plus.google.com/u/0/104844052523179213676
-  wechat: HsianLu
+  wechat: /assets/img/wechat.jpg
 
-#jsonContent:
-#  meta: false
-#  pages: false
-#  posts:
-#    title: true
-#    date: true
-#    path: true
-#    text: true
-#    raw: false
-#    content: false
-#    slug: false
-#    updated: false
-#    comments: false
-#    link: false
-#    permalink: false
-#    excerpt: false
-#    categories: false
-#    tags: true
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: true
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: true
+    categories: true
+    tags: true
