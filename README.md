@@ -1,7 +1,12 @@
 # luxuexian99.github.io
+
+[Asion.club](http://asion.club)
+
+[Asion Lu‘s blog.](https://luxuexian99.github.io)
+
 luxuexian99.github.io
 
-Asion Lu‘s blog.
+asion.club
 
 Welcome to Asion blog.
 
