@@ -17,3 +17,6 @@ public/
 out
 /out/
 gen
+
+# sass
+.sass-cache
