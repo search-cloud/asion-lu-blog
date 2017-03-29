@@ -1,5 +1,5 @@
 ---
-title: Java Concurrency Perspective (一) Overview </br> Java 并发透视之初窥探（一）
+title: Java Concurrency Perspective Overview (一) </br> Java 并发透视之初窥探（一）
 date: 2017-03-24 12:07:01
 categories: [java, concurrency]
 tags: [java, concurrency]
@@ -8,13 +8,13 @@ tags: [java, concurrency]
 Java 并发透视之初窥探（一）
 ====
 
-## Getting Start
+## 概述
 Java是一种支持多线程编程的语言，意味着，我们可以使用Java开发多线程程序。一个多线程程序包含两个或多个可以同时运行的部件，每个部件可以同时处理不同的任务，特别是当计算机有多个CPU时，可以有效地利用可用资源。
 多任务是指多个进程共享共同的处理资源，如CPU。多线程将多任务的概念扩展到可以将单个应用程序中的特定操作细分为单个线程的应用程序。每个线程可以并行运行。OS不仅在不同的应用程序之间划分处理时间，而且在应用程序中的每个线程之间划分处理时间。
 多线程使您能够以同一程序同时进行多个活动的方式进行写入。
 
 
-### 线程的生命周期
+## 线程的生命周期
 线程生命周期经历了几个阶段：线程诞生，启动，运行，阻塞，死亡。下图简要显示了一个线程的完整生命周期。
 
 ----
@@ -47,18 +47,18 @@ Java是一种支持多线程编程的语言，意味着，我们可以使用Java
 - **定时等待（Timed Waiting）** - 可运行的线程可以在指定的时间间隔内进入定时等待状态。当该时间间隔到期或发生等待的事件时，此状态的线程将转换回可运行状态。
 - **终止（Dead）** - 可执行线程在完成任务或以其他方式终止时进入终止状态。
 
-### 线程的优先级
+## 线程的优先级
 每一个线程都有一个优先级，可以帮助操作系统确定安排线程的顺序。
 
 Java线程优先级在MIN_PRIORITY（常量为1）和MAX_PRIORITY（常量为10）之间的范围内。默认情况下，每个线程都被赋予优先级NORM_PRIORITY（常量为5）。
 
 具有较高优先级的线程对于一个程序来说更重要，应该在低优先级线程之前分配处理器时间。然而，线程优先级不能保证线程执行的顺序，并且依赖于平台。
 
-### 创建自己的第一个线程
+## 创建自己的第一个线程
 {% note success %}
-#### Java主要可以通过两种方式创建多线程的程序：
+### Java主要可以通过两种方式创建多线程的程序：
 {% endnote %}
-##### 1.通过实现Runnable接口创建一个线程（**推荐使用**）
+#### 1.通过实现Runnable接口创建一个线程（**推荐使用**）
 
 ```java
 /**
@@ -85,18 +85,13 @@ class RunnableDemo implements Runnable {
 
     /**
      * 重写run()方法
+     * 从100倒数到1。
      */
     @Override
     public void run() {
         System.out.println("Running " + threadName);
-        try {
-            for (int i = 100; i > 0; i--) {
-                System.out.println("Thread: " + threadName + ", " + i);
-                // Let the thread sleep for a while.
-                Thread.sleep(50);
-            }
-        } catch (InterruptedException e) {
-            System.out.println("Thread " + threadName + " interrupted.");
+        for (int i = 100; i > 0; i--) {
+            System.out.println("Thread: " + threadName + ", " + i);
         }
         System.out.println("Thread " + threadName + " exiting.");
     }
@@ -114,8 +109,8 @@ class RunnableDemo implements Runnable {
     }
 }
 
-
 public class TestRunnable {
+    // 启动两个线程测试
     public static void main(String args[]) {
         RunnableDemo r1 = new RunnableDemo("Thread-1");
         r1.start();
@@ -126,7 +121,7 @@ public class TestRunnable {
 }
 ```
 
-##### 2.通过继承Thread类创建一个线程
+#### 2.通过继承Thread类创建一个线程
 
 ```java
 /**
@@ -146,22 +141,21 @@ class ThreadDemo extends Thread {
         System.out.println("Creating " + threadName);
     }
 
+    /**
+     * 重写run()方法
+     * 从100倒数到1。
+     */
+    @Override
     public void run() {
         System.out.println("Running " + threadName);
-        try {
-            for (int i = 10; i > 0; i--) {
-                System.out.println("Thread: " + threadName + ", " + i);
-                // Let the thread sleep for a while.
-                Thread.sleep(50);
-            }
-        } catch (InterruptedException e) {
-            System.out.println("Thread " + threadName + " interrupted.");
+        for (int i = 100; i > 0; i--) {
+            System.out.println("Thread: " + threadName + ", " + i);
         }
         System.out.println("Thread " + threadName + " exiting.");
     }
 
     /**
-     * 重写父类的start方法
+     * 重写父类的start()方法
      * 谨慎重写父类的start()方法
      */
     @Override
@@ -176,6 +170,7 @@ class ThreadDemo extends Thread {
 }
 
 public class TestThread {
+    // 启动两个线程测试
     public static void main(String args[]) {
         ThreadDemo t1 = new ThreadDemo("Thread-1");
         t1.start();
@@ -186,13 +181,12 @@ public class TestThread {
 }
 ```
 
-### 我们来分析一下多线程的程序
-#### 第一种方式：
-- 首先，我们的RunnableDemo实现的Runnable接口，那必须重写run()方法，run()就是线程running运行的方法。
+### 我们来简单分析一下多线程的程序
+- 首先，我们的RunnableDemo实现的Runnable接口，那必须重写run()方法，run()就是线程running运行的方法，是线程体。
 - 当new一个Thread实例，传入我们的RunnableDemo实例，这时线程生命周期处在新建（new）阶段；
-- 然后调用Thread实例的start()方法时，说明线程已经准备就绪，转到了就绪（Runnable）状态；
+- 然后，当调用Thread实例的start()方法时，说明线程已经准备就绪，转到了就绪（Runnable）状态；
 - 如果此时，分配到了CPU，调用了run()方法开始执行，就转到运行（Running）状态；
-- run()方法中此条语句：Thread.sleep(50); 就会让线程就进入阻塞（Blocked）状态；
-- sleep时间到了，又会继续就入运行（Running）状态；
-- 当run()方法运行结束，线程就结束。
+- 当run()方法运行结束，线程就结束；或者run()方法中异常导致线程结束退出。
+
+通过这一小节我们，我们了解java线程的创建和启动。下一节我们来看看java多线程的主要操作。
     
