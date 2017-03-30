@@ -15,8 +15,8 @@ favicon: /assets/img/favicon.png
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://luxuexian99.github.io
 root: /
-#permalink: :year/:month/:day/:title/
-permalink: posts/:category/:year-:month-:day-:title.html
+#permalink: :category/:year/:month/:day/:title/
+permalink: posts/:title.html
 permalink_defaults:
 
 # Directory
@@ -46,9 +46,10 @@ highlight:
   tab_replace:
 
 # Category & Tag
-default_category: uncategorized
+default_category: others
 category_map:
   programming: programming
+  java: java
   life: life
   other: other
 tag_map:
