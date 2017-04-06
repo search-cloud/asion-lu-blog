@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://luxuexian99.github.io/"/>
-  <updated>2017-03-22T08:35:08.000Z</updated>
+  <updated>2017-03-29T09:11:01.000Z</updated>
   <id>http://luxuexian99.github.io/</id>
   
   <author>
@@ -16,9 +16,228 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Java Concurrency Perspective Overview (一) &lt;/br&gt; Java 并发透视之初窥探（一）</title>
+    <link href="http://luxuexian99.github.io/posts/java/concurrency/java-concurrency-perspective-001-overview.html"/>
+    <id>http://luxuexian99.github.io/posts/java/concurrency/java-concurrency-perspective-001-overview.html</id>
+    <published>2017-03-24T04:07:01.000Z</published>
+    <updated>2017-03-29T09:11:01.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Java-并发透视之初窥探（一）"><a href="#Java-并发透视之初窥探（一）" class="headerlink" title="Java 并发透视之初窥探（一）"></a>Java 并发透视之初窥探（一）</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Java是一种支持多线程编程的语言，意味着，我们可以使用Java开发多线程程序。一个多线程程序包含两个或多个可以同时运行的部件，每个部件可以同时处理不同的任务，特别是当计算机有多个CPU时，可以有效地利用可用资源。<br>多任务是指多个进程共享共同的处理资源，如CPU。多线程将多任务的概念扩展到可以将单个应用程序中的特定操作细分为单个线程的应用程序。每个线程可以并行运行。OS不仅在不同的应用程序之间划分处理时间，而且在应用程序中的每个线程之间划分处理时间。<br>多线程使您能够以同一程序同时进行多个活动的方式进行写入。</p>
+<h2 id="线程的生命周期"><a href="#线程的生命周期" class="headerlink" title="线程的生命周期"></a>线程的生命周期</h2><p>线程生命周期经历了几个阶段：线程诞生，启动，运行，阻塞，死亡。下图简要显示了一个线程的完整生命周期。</p>
+<hr>
+<pre><code>               +-------------+   start()  \=-------------=/
+new Thread()--&gt;|     New     |------------&gt;\  Runnable   /&lt;---------+
+               +------+------+              \-----+-----/           |
+                      |                           |                 |
+                      |                           |run()            |
+                      v           End of          v                 |
+               +------+------+   execution /------+-------\         |
+         End&lt;--\    Dead     /&lt;------------|   Running    |         |
+               -------+-------             \------+-------/         | Release Block
+                      ^                           |                 |
+                      |                           |sleep(), wait()  |    
+                      |      =-------------=      |                 |
+                      +------|   Blocked   |&lt;-----+                 |
+                             =------+------=                        |
+                                    |                               |
+                                    |                               |
+                                    +-------------------------------+
+                         Life cycle of a Thread
+                      -----------------------------        
+</code></pre><hr>
+<p>以下是生命周期的各个阶段简述：</p>
+<ul>
+<li><strong>新的（New）</strong> - 新线程在新的状态下开始其生命周期。直到程序启动线程为止，它保持在这种状态。它也被称为<strong>新生线程</strong>。</li>
+<li><strong>可运行的（Runnable）</strong> - 新诞生的线程启动后，该线程可以运行。该状态的线程被认为正在执行其任务。但是，可能还未正式运行，可能在等待资源，如：CPU。</li>
+<li><strong>运行中的（Running）</strong> - 新诞生的线程启动后，如果，所有的准备条件已经满足，该线程会从准备运行状态进入运行状态，执行任务。</li>
+<li><strong>等待（Waiting）</strong> - 有时线程会转换到等待状态，而线程等待另一个线程执行任务。只有当另一个线程发信号通知等待线程才能继续执行时，线程才转回到可运行状态。</li>
+<li><strong>定时等待（Timed Waiting）</strong> - 可运行的线程可以在指定的时间间隔内进入定时等待状态。当该时间间隔到期或发生等待的事件时，此状态的线程将转换回可运行状态。</li>
+<li><strong>终止（Dead）</strong> - 可执行线程在完成任务或以其他方式终止时进入终止状态。</li>
+</ul>
+<h2 id="线程的优先级"><a href="#线程的优先级" class="headerlink" title="线程的优先级"></a>线程的优先级</h2><p>每一个线程都有一个优先级，可以帮助操作系统确定安排线程的顺序。</p>
+<p>Java线程优先级在MIN_PRIORITY（常量为1）和MAX_PRIORITY（常量为10）之间的范围内。默认情况下，每个线程都被赋予优先级NORM_PRIORITY（常量为5）。</p>
+<p>具有较高优先级的线程对于一个程序来说更重要，应该在低优先级线程之前分配处理器时间。然而，线程优先级不能保证线程执行的顺序，并且依赖于平台。</p>
+<h2 id="创建自己的第一个线程"><a href="#创建自己的第一个线程" class="headerlink" title="创建自己的第一个线程"></a>创建自己的第一个线程</h2><div class="note success"><h3 id="Java主要可以通过两种方式创建多线程的程序："><a href="#Java主要可以通过两种方式创建多线程的程序：" class="headerlink" title="Java主要可以通过两种方式创建多线程的程序："></a>Java主要可以通过两种方式创建多线程的程序：</h3></div>
+<h4 id="1-通过实现Runnable接口创建一个线程（推荐使用）"><a href="#1-通过实现Runnable接口创建一个线程（推荐使用）" class="headerlink" title="1.通过实现Runnable接口创建一个线程（推荐使用）"></a>1.通过实现Runnable接口创建一个线程（<strong>推荐使用</strong>）</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 实现Runnable接口的方式，创建线程</div><div class="line"> *</div><div class="line"> * <span class="doctag">@author</span> Asion</div><div class="line"> * <span class="doctag">@since</span> 2017/03/24</div><div class="line"> */</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">RunnableDemo</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</div><div class="line">    <span class="comment">// 持有Thread的一个引用</span></div><div class="line">    <span class="keyword">private</span> Thread t;</div><div class="line">    <span class="comment">// 线程名称</span></div><div class="line">    <span class="keyword">private</span> String threadName;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 构造一个Runnable实例</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> name 线程名称</div><div class="line">     */</div><div class="line">    RunnableDemo(String name) &#123;</div><div class="line">        threadName = name;</div><div class="line">        System.out.println(<span class="string">"Creating "</span> + threadName);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 重写run()方法</div><div class="line">     * 从100倒数到1。</div><div class="line">     */</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"Running "</span> + threadName);</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">100</span>; i &gt; <span class="number">0</span>; i--) &#123;</div><div class="line">            System.out.println(<span class="string">"Thread: "</span> + threadName + <span class="string">", "</span> + i);</div><div class="line">        &#125;</div><div class="line">        System.out.println(<span class="string">"Thread "</span> + threadName + <span class="string">" exiting."</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 普通start()方法</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">start</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"Starting "</span> + threadName);</div><div class="line">        <span class="keyword">if</span> (t == <span class="keyword">null</span>) &#123;</div><div class="line">            t = <span class="keyword">new</span> Thread(<span class="keyword">this</span>, threadName);</div><div class="line">            <span class="comment">// 真正调用线程类的start()方法，启动线程</span></div><div class="line">            t.start();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestRunnable</span> </span>&#123;</div><div class="line">    <span class="comment">// 启动两个线程测试</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</div><div class="line">        RunnableDemo r1 = <span class="keyword">new</span> RunnableDemo(<span class="string">"Thread-1"</span>);</div><div class="line">        r1.start();</div><div class="line"></div><div class="line">        RunnableDemo r2 = <span class="keyword">new</span> RunnableDemo(<span class="string">"Thread-2"</span>);</div><div class="line">        r2.start();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="2-通过继承Thread类创建一个线程"><a href="#2-通过继承Thread类创建一个线程" class="headerlink" title="2.通过继承Thread类创建一个线程"></a>2.通过继承Thread类创建一个线程</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 继承Thread类，创建线程</div><div class="line"> *</div><div class="line"> * <span class="doctag">@author</span> Asion</div><div class="line"> * <span class="doctag">@since</span> 2017/03/24</div><div class="line"> */</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ThreadDemo</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</div><div class="line">    <span class="comment">// 持有Thread的一个引用</span></div><div class="line">    <span class="keyword">private</span> Thread t;</div><div class="line">    <span class="comment">// 线程名称</span></div><div class="line">    <span class="keyword">private</span> String threadName;</div><div class="line"></div><div class="line">    ThreadDemo(String name) &#123;</div><div class="line">        threadName = name;</div><div class="line">        System.out.println(<span class="string">"Creating "</span> + threadName);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 重写run()方法</div><div class="line">     * 从100倒数到1。</div><div class="line">     */</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"Running "</span> + threadName);</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">100</span>; i &gt; <span class="number">0</span>; i--) &#123;</div><div class="line">            System.out.println(<span class="string">"Thread: "</span> + threadName + <span class="string">", "</span> + i);</div><div class="line">        &#125;</div><div class="line">        System.out.println(<span class="string">"Thread "</span> + threadName + <span class="string">" exiting."</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 重写父类的start()方法</div><div class="line">     * 谨慎重写父类的start()方法</div><div class="line">     */</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"Starting "</span> + threadName);</div><div class="line">        <span class="keyword">if</span> (t == <span class="keyword">null</span>) &#123;</div><div class="line">            t = <span class="keyword">new</span> Thread(<span class="keyword">this</span>, threadName);</div><div class="line">            <span class="comment">// 真正调用父类的start()方法，启动线程</span></div><div class="line">            t.start();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestThread</span> </span>&#123;</div><div class="line">    <span class="comment">// 启动两个线程测试</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</div><div class="line">        ThreadDemo t1 = <span class="keyword">new</span> ThreadDemo(<span class="string">"Thread-1"</span>);</div><div class="line">        t1.start();</div><div class="line"></div><div class="line">        ThreadDemo t2 = <span class="keyword">new</span> ThreadDemo(<span class="string">"Thread-2"</span>);</div><div class="line">        t2.start();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="我们来简单分析一下多线程的程序"><a href="#我们来简单分析一下多线程的程序" class="headerlink" title="我们来简单分析一下多线程的程序"></a>我们来简单分析一下多线程的程序</h3><ul>
+<li>首先，我们的RunnableDemo实现的Runnable接口，那必须重写run()方法，run()就是线程running运行的方法，是线程体。</li>
+<li>当new一个Thread实例，传入我们的RunnableDemo实例，这时线程生命周期处在新建（new）阶段；</li>
+<li>然后，当调用Thread实例的start()方法时，说明线程已经准备就绪，转到了就绪（Runnable）状态；</li>
+<li>如果此时，分配到了CPU，调用了run()方法开始执行，就转到运行（Running）状态；</li>
+<li>当run()方法运行结束，线程就结束；或者run()方法中异常导致线程结束退出。</li>
+</ul>
+<p>通过这一小节我们，我们了解java线程的创建和启动。下一节我们来看看java多线程的主要操作。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Java-并发透视之初窥探（一）&quot;&gt;&lt;a href=&quot;#Java-并发透视之初窥探（一）&quot; class=&quot;headerlink&quot; title=&quot;Java 并发透视之初窥探（一）&quot;&gt;&lt;/a&gt;Java 并发透视之初窥探（一）&lt;/h1&gt;&lt;h2 id=&quot;概述&quot;&gt;&lt;a hr
+    
+    </summary>
+    
+      <category term="java" scheme="http://luxuexian99.github.io/categories/java/"/>
+    
+      <category term="concurrency" scheme="http://luxuexian99.github.io/categories/java/concurrency/"/>
+    
+    
+      <category term="java" scheme="http://luxuexian99.github.io/tags/java/"/>
+    
+      <category term="concurrency" scheme="http://luxuexian99.github.io/tags/concurrency/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java Concurrency Perspective Major Operations (二)  &lt;/br&gt; Java 并发透视之主要操作（二）</title>
+    <link href="http://luxuexian99.github.io/posts/java/concurrency/java-concurrency-perspective-002-major-operations.html"/>
+    <id>http://luxuexian99.github.io/posts/java/concurrency/java-concurrency-perspective-002-major-operations.html</id>
+    <published>2017-03-24T04:07:01.000Z</published>
+    <updated>2017-04-05T09:53:06.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Java-并发透视之主要操作（二）"><a href="#Java-并发透视之主要操作（二）" class="headerlink" title="Java 并发透视之主要操作（二）"></a>Java 并发透视之主要操作（二）</h1><h2 id="java-多线程的主要操作"><a href="#java-多线程的主要操作" class="headerlink" title="java 多线程的主要操作"></a>java 多线程的主要操作</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">方法</th>
+<th style="text-align:left">简介</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>sleep(long)</strong></td>
+<td style="text-align:left">该方法使当前线程睡眠一定时间，单位为毫秒（ms）</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>getPriority()</strong></td>
+<td style="text-align:left">该方法可以获取线程的优先级</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>setPriority(int)</strong></td>
+<td style="text-align:left">该方法设置线程的优先级，但是并不能保证按这个优先级优先运行</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>yield()</strong></td>
+<td style="text-align:left">该方法让出CUP资源，让其他线程先执行</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>join()</strong></td>
+<td style="text-align:left">该方法合并一个线程到当前线程</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>wait()</strong></td>
+<td style="text-align:left">当前线程等待其他线程调用notify()后才会继续运行</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>notify()</strong></td>
+<td style="text-align:left">该方法唤醒一个等待中的线程</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>notifyAll()</strong></td>
+<td style="text-align:left">该方法所有正在等待的线程</td>
+</tr>
+</tbody>
+</table>
+<h2 id="sleep"><a href="#sleep" class="headerlink" title="sleep()"></a>sleep()</h2><p>该方法使当前线程睡眠一定时间，单位为毫秒（ms）<br>还是上一节的例子，但是我们在run()方法的循环体中添加了 Thread.sleep(50); 语句。<br>这样输出的结果就是，Thread-1：倒计时一次，Thread-2：倒计时一次。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">Creating Thread-1</div><div class="line">Starting Thread-1</div><div class="line">Creating Thread-2</div><div class="line">Starting Thread-2</div><div class="line">Running Thread-1</div><div class="line">Thread: Thread-1, 10</div><div class="line">Running Thread-2</div><div class="line">Thread: Thread-2, 10</div><div class="line">Thread: Thread-2, 9</div><div class="line">Thread: Thread-1, 9</div><div class="line">Thread: Thread-2, 8</div><div class="line">Thread: Thread-1, 8</div><div class="line">Thread: Thread-2, 7</div><div class="line">Thread: Thread-1, 7</div><div class="line">Thread: Thread-1, 6</div><div class="line">Thread: Thread-2, 6</div><div class="line">Thread: Thread-2, 5</div><div class="line">Thread: Thread-1, 5</div><div class="line">Thread: Thread-2, 4</div><div class="line">Thread: Thread-1, 4</div><div class="line">Thread: Thread-2, 3</div><div class="line">Thread: Thread-1, 3</div><div class="line">Thread: Thread-2, 2</div><div class="line">Thread: Thread-1, 2</div><div class="line">Thread: Thread-2, 1</div><div class="line">Thread: Thread-1, 1</div><div class="line">Thread Thread-2 exiting.</div><div class="line">Thread Thread-1 exiting.</div></pre></td></tr></table></figure></p>
+<div class="note danger"><p>因为，每当循环每执行一次，线程就睡眠50毫秒，使得倒计时比较均匀。</p>
+</div>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 重写run()方法</div><div class="line"> * 从100倒数到1。</div><div class="line"> */</div><div class="line">@Override</div><div class="line">public void run() &#123;</div><div class="line">    System.out.println(&quot;Running &quot; + threadName);</div><div class="line">    try &#123;</div><div class="line">        for (int i = 100; i &gt; 0; i--) &#123;</div><div class="line">            System.out.println(&quot;Thread: &quot; + threadName + &quot;, &quot; + i);</div><div class="line">            // Let the thread sleep for a while.</div><div class="line">            Thread.sleep(50);</div><div class="line">        &#125;</div><div class="line">    &#125; catch (InterruptedException e) &#123;</div><div class="line">        System.out.println(&quot;Thread &quot; + threadName + &quot; interrupted.&quot;);</div><div class="line">    &#125;</div><div class="line">    System.out.println(&quot;Thread &quot; + threadName + &quot; exiting.&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="setPriority-int-amp-getPriority"><a href="#setPriority-int-amp-getPriority" class="headerlink" title="setPriority(int) &amp; getPriority()"></a>setPriority(int) &amp; getPriority()</h2><p><strong>getPriority()</strong>方法可以获取该线程的优先级<br><strong>setPriority(int)</strong>方法设置线程的优先级，但是JVM并不能保证按这个优先级优先运行</p>
+<h2 id="yield"><a href="#yield" class="headerlink" title="yield()"></a>yield()</h2><h2 id="join"><a href="#join" class="headerlink" title="join()"></a>join()</h2><h2 id="wait"><a href="#wait" class="headerlink" title="wait()"></a>wait()</h2><h2 id="notify"><a href="#notify" class="headerlink" title="notify()"></a>notify()</h2><h2 id="notifyAll"><a href="#notifyAll" class="headerlink" title="notifyAll()"></a>notifyAll()</h2>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Java-并发透视之主要操作（二）&quot;&gt;&lt;a href=&quot;#Java-并发透视之主要操作（二）&quot; class=&quot;headerlink&quot; title=&quot;Java 并发透视之主要操作（二）&quot;&gt;&lt;/a&gt;Java 并发透视之主要操作（二）&lt;/h1&gt;&lt;h2 id=&quot;java-
+    
+    </summary>
+    
+      <category term="java" scheme="http://luxuexian99.github.io/categories/java/"/>
+    
+      <category term="concurrency" scheme="http://luxuexian99.github.io/categories/java/concurrency/"/>
+    
+    
+      <category term="java" scheme="http://luxuexian99.github.io/tags/java/"/>
+    
+      <category term="concurrency" scheme="http://luxuexian99.github.io/tags/concurrency/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JUnit Tutorial 系列教程(一) JUnit概述</title>
+    <link href="http://luxuexian99.github.io/posts/testing/junit-totulrial-s1-001-index.html"/>
+    <id>http://luxuexian99.github.io/posts/testing/junit-totulrial-s1-001-index.html</id>
+    <published>2017-03-24T02:07:23.000Z</published>
+    <updated>2017-03-24T03:48:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="JUnit-系列教程-一-JUnit概述"><a href="#JUnit-系列教程-一-JUnit概述" class="headerlink" title="JUnit 系列教程(一) JUnit概述"></a>JUnit 系列教程(一) JUnit概述</h1><p>&emsp;&emsp;JUnit是Java编程语言的单元测试框架。JUnit在测试驱动开发中一直很重要，它起源于统称为xUnit的单元测试框架。</p>
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>&emsp;&emsp;软件测试是检查应用程序的功能确保其按照要求运行的过程。单元测试是在开发层面的；它是单个个体（类或方法）的测试。单元测试对于提高软件质量有着重要的帮助，在帮助软件公司向客户提供优质的产品方面发挥关键作用。<br>单元测试可以通过两种方式进行：</p>
+<ul>
+<li>手动测试：在没有任何工具支持的情况下手动执行测试用例称为手动测试。</li>
+<li>自动测试：使用自动化工具进行工具支持和执行测试用例称为自动化测试。</li>
+</ul>
+<p>两种方式对比：</p>
+<table>
+<thead>
+<tr>
+<th>手动测试</th>
+<th>自动测试</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>耗时和乏味</strong> - 由于测试用例是由人力资源执行的，所以非常慢而繁琐。</td>
+<td><strong>快速</strong> - 自动化运行测试用例明显快于人力资源。</td>
+</tr>
+<tr>
+<td><strong>对人力资源的巨大投入</strong> - 由于测试用例需要手动执行，所以在手动测试中需要更多的测试人员。</td>
+<td><strong>减少对人力资源的投入</strong> - 使用自动化工具执行测试用例，因此在自动化测试中需要较少的测试人员。</td>
+</tr>
+<tr>
+<td><strong>不太可靠</strong> - 手动测试不太可靠，因为它必须解决人为错误。</td>
+<td><strong>更可靠</strong> - 自动化测试精确可靠。</td>
+</tr>
+<tr>
+<td><strong>不可编程</strong> - 无需编写可编写复杂测试来获取隐藏信息的编程。</td>
+<td><strong>可编程</strong> - 测试人员可以对复杂的测试进行编程，以提供隐藏的信息。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="什么是JUnit？"><a href="#什么是JUnit？" class="headerlink" title="什么是JUnit？"></a>什么是JUnit？</h3><p>&emsp;&emsp;JUnit是Java编程语言的单元测试框架。它是测试驱动开发中的关键角色，并且是统称为xUnit的单元测试框架系列。<br>&emsp;&emsp;JUnit提出了“首先测试然后编码”的想法，其强调为首先测试然后实现的一段代码设置测试数据。这种方法就像“测试一点，代码一点，测试一点，代码一点”。它提高了程序员的生产力和程序代码的稳定性，从而降低了程序员的压力和调试时间。</p>
+<h3 id="JUnit的特性"><a href="#JUnit的特性" class="headerlink" title="JUnit的特性"></a>JUnit的特性</h3><ul>
+<li>JUnit是一个开源框架，开源社区活跃。</li>
+<li>提供注解的方式来识别测试方法。</li>
+<li>提供用于测试预期结果的断言。</li>
+<li>提供运行测试的测试Runner。</li>
+<li>JUnit测试允许您更快地编写代码，从而提高质量。</li>
+<li>JUnit优雅简单。它不那么复杂，花费更少的时间。</li>
+<li>JUnit测试可以自动运行，并检查自己的结果并提供即时反馈。没有必要手动梳理测试结果的报告。</li>
+<li>JUnit测试可以组织成包含测试用例的测试套件，甚至其他测试套件。</li>
+<li>如果测试运行平稳，JUnit会显示一个绿色的测试进度，当测试失败时，它会变为红色。</li>
+</ul>
+<h3 id="什么是单元测试用例？"><a href="#什么是单元测试用例？" class="headerlink" title="什么是单元测试用例？"></a>什么是单元测试用例？</h3><p>&emsp;&emsp;单元测试用例是代码的一部分，可以确保代码（方法）的另一部分按预期工作。为了快速实现所需的结果，需要一个测试框架。JUnit是Java编程语言的完美单元测试框架。<br>&emsp;&emsp;正式的书面单元测试用例的特征在于已知的输入和预期的输出，在测试执行之前计算出来。已知输入应测试前提条件，预期输出应测试后期条件。<br>&emsp;&emsp;每个要求必须至少有两个单元测试用例 - 一个正测试和一个负测试。如果要求有次级要求，则每个子要求必须至少有两个测试用例为正值和负数。</p>
+<h3 id="第一个测试用例"><a href="#第一个测试用例" class="headerlink" title="第一个测试用例"></a>第一个测试用例</h3><figure class="highlight jsp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FirstJUnitTestCase</span> </span>&#123;</div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testString</span><span class="params">()</span> </span>&#123;</div><div class="line">        String str = <span class="string">"JUnut 已经成功运行！"</span>;</div><div class="line">        <span class="comment">// 断言String是否相等</span></div><div class="line">        assertEquals(<span class="string">"JUnut 已经成功运行！"</span>, str);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;JUnit-系列教程-一-JUnit概述&quot;&gt;&lt;a href=&quot;#JUnit-系列教程-一-JUnit概述&quot; class=&quot;headerlink&quot; title=&quot;JUnit 系列教程(一) JUnit概述&quot;&gt;&lt;/a&gt;JUnit 系列教程(一) JUnit概述&lt;/h1
+    
+    </summary>
+    
+      <category term="java" scheme="http://luxuexian99.github.io/categories/java/"/>
+    
+      <category term="testing" scheme="http://luxuexian99.github.io/categories/java/testing/"/>
+    
+    
+      <category term="java" scheme="http://luxuexian99.github.io/tags/java/"/>
+    
+      <category term="testing" scheme="http://luxuexian99.github.io/tags/testing/"/>
+    
+      <category term="junit" scheme="http://luxuexian99.github.io/tags/junit/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Java Array 真的是静态的吗？</title>
-    <link href="http://luxuexian99.github.io/posts/java/2017-03-21-java/java-array.html"/>
-    <id>http://luxuexian99.github.io/posts/java/2017-03-21-java/java-array.html</id>
+    <link href="http://luxuexian99.github.io/posts/java/java-array-and-memory.html"/>
+    <id>http://luxuexian99.github.io/posts/java/java-array-and-memory.html</id>
     <published>2017-03-21T14:17:16.000Z</published>
     <updated>2017-03-22T08:35:08.000Z</updated>
     
@@ -46,8 +265,8 @@
   
   <entry>
     <title>Java leaning road 从菜佳娃到佳娃假购师</title>
-    <link href="http://luxuexian99.github.io/posts/java/2017-03-21-java/java-leaning-road.html"/>
-    <id>http://luxuexian99.github.io/posts/java/2017-03-21-java/java-leaning-road.html</id>
+    <link href="http://luxuexian99.github.io/posts/java/java-leaning-road.html"/>
+    <id>http://luxuexian99.github.io/posts/java/java-leaning-road.html</id>
     <published>2017-03-21T13:48:57.000Z</published>
     <updated>2017-03-22T08:25:59.000Z</updated>
     
@@ -69,8 +288,8 @@
   
   <entry>
     <title>为什么需要HashMap数据结构？</title>
-    <link href="http://luxuexian99.github.io/posts/algorithm/2017-02-10-algorithm/why-hashing.html"/>
-    <id>http://luxuexian99.github.io/posts/algorithm/2017-02-10-algorithm/why-hashing.html</id>
+    <link href="http://luxuexian99.github.io/posts/algorithm/why-hashing.html"/>
+    <id>http://luxuexian99.github.io/posts/algorithm/why-hashing.html</id>
     <published>2017-02-09T16:10:20.000Z</published>
     <updated>2017-03-22T09:16:13.000Z</updated>
     
@@ -101,8 +320,8 @@
   
   <entry>
     <title>深入解析Spring架构与设计原理</title>
-    <link href="http://luxuexian99.github.io/posts/java/spring/2017-02-06-spring/spring-internals.html"/>
-    <id>http://luxuexian99.github.io/posts/java/spring/2017-02-06-spring/spring-internals.html</id>
+    <link href="http://luxuexian99.github.io/posts/spring/spring-internals.html"/>
+    <id>http://luxuexian99.github.io/posts/spring/spring-internals.html</id>
     <published>2017-02-06T15:16:42.000Z</published>
     <updated>2017-03-22T08:03:21.000Z</updated>
     
@@ -145,8 +364,8 @@
   
   <entry>
     <title>道德经</title>
-    <link href="http://luxuexian99.github.io/posts/life/2017-01-17-life/my-life-way.html"/>
-    <id>http://luxuexian99.github.io/posts/life/2017-01-17-life/my-life-way.html</id>
+    <link href="http://luxuexian99.github.io/posts/life/my-life-way.html"/>
+    <id>http://luxuexian99.github.io/posts/life/my-life-way.html</id>
     <published>2017-01-17T07:31:36.000Z</published>
     <updated>2017-03-22T07:57:19.000Z</updated>
     
@@ -214,10 +433,10 @@
   
   <entry>
     <title>About Asion Lu</title>
-    <link href="http://luxuexian99.github.io/posts/about/2017-01-14-about.html"/>
-    <id>http://luxuexian99.github.io/posts/about/2017-01-14-about.html</id>
+    <link href="http://luxuexian99.github.io/posts/about.html"/>
+    <id>http://luxuexian99.github.io/posts/about.html</id>
     <published>2017-01-14T13:18:29.000Z</published>
-    <updated>2017-03-22T01:55:52.000Z</updated>
+    <updated>2017-03-23T02:36:39.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id=""><a href="#" class="headerlink" title="*"></a>*</h1><h3 id="I’m-not-a-programmer-I’m-a-technology-farmer"><a href="#I’m-not-a-programmer-I’m-a-technology-farmer" class="headerlink" title="I’m not a programmer, I’m a technology farmer!"></a>I’m not a programmer, I’m a technology farmer!</h3><p><a href="https://luxuexian99.github.io/">Asion Lu</a></p>
 <p><a href="https://luxuexian99@gmail.com" target="_blank" rel="external">luxuexian99@gmail.com</a></p>
@@ -237,8 +456,8 @@
   
   <entry>
     <title>Hexo Quick Start</title>
-    <link href="http://luxuexian99.github.io/posts/hexo/2016-10-27-hexo-quick-start.html"/>
-    <id>http://luxuexian99.github.io/posts/hexo/2016-10-27-hexo-quick-start.html</id>
+    <link href="http://luxuexian99.github.io/posts/hexo-quick-start.html"/>
+    <id>http://luxuexian99.github.io/posts/hexo-quick-start.html</id>
     <published>2016-10-26T20:56:25.000Z</published>
     <updated>2017-03-21T16:54:43.000Z</updated>
     
@@ -268,8 +487,8 @@
   
   <entry>
     <title>Git版本控制与Git Flow工作流程</title>
-    <link href="http://luxuexian99.github.io/posts/VCS/git/2016-08-26-git-flow.html"/>
-    <id>http://luxuexian99.github.io/posts/VCS/git/2016-08-26-git-flow.html</id>
+    <link href="http://luxuexian99.github.io/posts/git-flow.html"/>
+    <id>http://luxuexian99.github.io/posts/git-flow.html</id>
     <published>2016-08-26T12:33:25.000Z</published>
     <updated>2017-03-21T16:54:47.000Z</updated>
     

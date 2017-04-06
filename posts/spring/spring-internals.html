@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next mist use-motion" lang="en">
+<html class="theme-next mist use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="spring," />
 
 
 
@@ -89,22 +89,52 @@
 
 
 
-<meta name="description" content="*I’m not a programmer, I’m a technology farmer!Asion Lu
-luxuexian99@gmail.com
-Asion Lu’s github">
+<meta name="description" content="Spring Internals 深入解析Spring架构与设计原理Preface
+Spring的设计理念和架构
+Spring core
+Spring AOP
+Spring MVC
+Spring Security
+Spring Transaction
+Spring Data
+Spring Boot
+Spring Cloud
+Spring的设计理念和架构
+
+Spring core   Spring">
 <meta property="og:type" content="article">
-<meta property="og:title" content="About Asion Lu">
-<meta property="og:url" content="http://luxuexian99.github.io/posts/about/2017-01-14-about.html">
+<meta property="og:title" content="深入解析Spring架构与设计原理">
+<meta property="og:url" content="http://luxuexian99.github.io/posts/spring/spring-internals.html">
 <meta property="og:site_name" content="Asoin Lu's Blog">
-<meta property="og:description" content="*I’m not a programmer, I’m a technology farmer!Asion Lu
-luxuexian99@gmail.com
-Asion Lu’s github">
-<meta property="og:updated_time" content="2017-03-22T01:55:52.000Z">
+<meta property="og:description" content="Spring Internals 深入解析Spring架构与设计原理Preface
+Spring的设计理念和架构
+Spring core
+Spring AOP
+Spring MVC
+Spring Security
+Spring Transaction
+Spring Data
+Spring Boot
+Spring Cloud
+Spring的设计理念和架构
+
+Spring core   Spring">
+<meta property="og:updated_time" content="2017-03-22T08:03:21.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="About Asion Lu">
-<meta name="twitter:description" content="*I’m not a programmer, I’m a technology farmer!Asion Lu
-luxuexian99@gmail.com
-Asion Lu’s github">
+<meta name="twitter:title" content="深入解析Spring架构与设计原理">
+<meta name="twitter:description" content="Spring Internals 深入解析Spring架构与设计原理Preface
+Spring的设计理念和架构
+Spring core
+Spring AOP
+Spring MVC
+Spring Security
+Spring Transaction
+Spring Data
+Spring Boot
+Spring Cloud
+Spring的设计理念和架构
+
+Spring core   Spring">
 
 
 
@@ -118,7 +148,7 @@ Asion Lu’s github">
     motion: true,
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: '博主'
     },
     algolia: {
       applicationID: '',
@@ -132,16 +162,16 @@ Asion Lu’s github">
 
 
 
-  <link rel="canonical" href="http://luxuexian99.github.io/posts/about/2017-01-14-about.html"/>
+  <link rel="canonical" href="http://luxuexian99.github.io/posts/spring/spring-internals.html"/>
 
 
 
 
 
-  <title> About Asion Lu | Asoin Lu's Blog </title>
+  <title> 深入解析Spring架构与设计原理 | Asoin Lu's Blog </title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
 
@@ -234,7 +264,7 @@ Asion Lu’s github">
             
               <i class="menu-item-icon fa fa-fw fa-paint-brush"></i> <br />
             
-            Life
+            生活
           </a>
         </li>
       
@@ -244,7 +274,7 @@ Asion Lu’s github">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            About
+            关于
           </a>
         </li>
       
@@ -254,7 +284,7 @@ Asion Lu’s github">
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Categories
+            分类
           </a>
         </li>
       
@@ -264,7 +294,7 @@ Asion Lu’s github">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            Tags
+            标签
           </a>
         </li>
       
@@ -297,7 +327,7 @@ Asion Lu’s github">
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://luxuexian99.github.io/posts/about/2017-01-14-about.html">
+    <link itemprop="mainEntityOfPage" href="http://luxuexian99.github.io/posts/spring/spring-internals.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Asion Lu">
@@ -318,7 +348,7 @@ Asion Lu’s github">
             
             
               
-                About Asion Lu
+                深入解析Spring架构与设计原理
               
             
           </h1>
@@ -331,10 +361,10 @@ Asion Lu’s github">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-14T21:18:29+08:00">
-                2017-01-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-06T23:16:42+08:00">
+                2017-02-06
               </time>
             
 
@@ -352,12 +382,23 @@ Asion Lu’s github">
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/about/" itemprop="url" rel="index">
-                    <span itemprop="name">about</span>
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/spring/" itemprop="url" rel="index">
+                    <span itemprop="name">spring</span>
                   </a>
                 </span>
 
@@ -374,7 +415,7 @@ Asion Lu’s github">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a class="cloud-tie-join-count" href="/posts/about/2017-01-14-about.html#comments" itemprop="discussionUrl">
+                <a class="cloud-tie-join-count" href="/posts/spring/spring-internals.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count join-count" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -383,13 +424,13 @@ Asion Lu’s github">
 
           
           
-             <span id="/posts/about/2017-01-14-about.html" class="leancloud_visitors" data-flag-title="About Asion Lu">
+             <span id="/posts/spring/spring-internals.html" class="leancloud_visitors" data-flag-title="深入解析Spring架构与设计原理">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">Visitors </span>
+                 <span class="post-meta-item-text">阅读次数 </span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
@@ -412,9 +453,26 @@ Asion Lu’s github">
       
 
       
-        <h1 id=""><a href="#" class="headerlink" title="*"></a>*</h1><h3 id="I’m-not-a-programmer-I’m-a-technology-farmer"><a href="#I’m-not-a-programmer-I’m-a-technology-farmer" class="headerlink" title="I’m not a programmer, I’m a technology farmer!"></a>I’m not a programmer, I’m a technology farmer!</h3><p><a href="https://luxuexian99.github.io/">Asion Lu</a></p>
-<p><a href="https://luxuexian99@gmail.com" target="_blank" rel="external">luxuexian99@gmail.com</a></p>
-<p><a href="https://github.com/luxuexian99" title="https://github.com/luxuexian99" target="_blank" rel="external">Asion Lu’s github</a></p>
+        <h2 id="Spring-Internals-深入解析Spring架构与设计原理"><a href="#Spring-Internals-深入解析Spring架构与设计原理" class="headerlink" title="Spring Internals 深入解析Spring架构与设计原理"></a>Spring Internals 深入解析Spring架构与设计原理</h2><h2 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h2><ul>
+<li>Spring的设计理念和架构</li>
+<li>Spring core</li>
+<li>Spring AOP</li>
+<li>Spring MVC</li>
+<li>Spring Security</li>
+<li>Spring Transaction</li>
+<li>Spring Data</li>
+<li>Spring Boot</li>
+<li>Spring Cloud</li>
+<li>Spring的设计理念和架构</li>
+</ul>
+<h3 id="Spring-core"><a href="#Spring-core" class="headerlink" title="Spring core"></a>Spring core</h3><p>   Spring core</p>
+<h3 id="Spring-AOP"><a href="#Spring-AOP" class="headerlink" title="Spring AOP"></a>Spring AOP</h3><p>   Spring AOP</p>
+<h3 id="Spring-MVC"><a href="#Spring-MVC" class="headerlink" title="Spring MVC"></a>Spring MVC</h3><p>   Spring MVC</p>
+<h3 id="Spring-Security"><a href="#Spring-Security" class="headerlink" title="Spring Security"></a>Spring Security</h3><p>   Spring Security</p>
+<h3 id="Spring-Transaction"><a href="#Spring-Transaction" class="headerlink" title="Spring Transaction"></a>Spring Transaction</h3><p>   Spring Transaction</p>
+<h3 id="Spring-Data"><a href="#Spring-Data" class="headerlink" title="Spring Data"></a>Spring Data</h3><p>   Spring Data</p>
+<h3 id="Spring-Boot"><a href="#Spring-Boot" class="headerlink" title="Spring Boot"></a>Spring Boot</h3><p>   Spring Boot</p>
+<h3 id="Spring-Cloud"><a href="#Spring-Cloud" class="headerlink" title="Spring Cloud"></a>Spring Cloud</h3><p>   Spring Cloud</p>
 
       
     </div>
@@ -436,11 +494,32 @@ Asion Lu’s github">
     <div>
       
         
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      Asion Lu
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://luxuexian99.github.io/posts/spring/spring-internals.html" title="深入解析Spring架构与设计原理">http://luxuexian99.github.io/posts/spring/spring-internals.html</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
 
       
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/spring/" rel="tag"># spring</a>
+          
+        </div>
       
 
       
@@ -451,8 +530,8 @@ Asion Lu’s github">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/hexo/2016-10-27-hexo-quick-start.html" rel="next" title="Hexo Quick Start">
-                <i class="fa fa-chevron-left"></i> Hexo Quick Start
+              <a href="/posts/life/my-life-way.html" rel="next" title="道德经">
+                <i class="fa fa-chevron-left"></i> 道德经
               </a>
             
           </div>
@@ -461,8 +540,8 @@ Asion Lu’s github">
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/posts/life/2017-01-17-life/my-life-way.html" rel="prev" title="道德经">
-                道德经 <i class="fa fa-chevron-right"></i>
+              <a href="/posts/algorithm/why-hashing.html" rel="prev" title="为什么需要HashMap数据结构？">
+                为什么需要HashMap数据结构？ <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -520,10 +599,10 @@ Asion Lu’s github">
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
+            文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
+            站点概览
           </li>
         </ul>
       
@@ -543,8 +622,8 @@ Asion Lu’s github">
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">8</span>
-                <span class="site-state-item-name">posts</span>
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">日志</span>
               </a>
             </div>
           
@@ -554,8 +633,8 @@ Asion Lu’s github">
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">8</span>
-                <span class="site-state-item-name">categories</span>
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
               </a>
             </div>
           
@@ -565,8 +644,8 @@ Asion Lu’s github">
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">9</span>
-                <span class="site-state-item-name">tags</span>
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">标签</span>
               </a>
             </div>
           
@@ -663,7 +742,7 @@ Asion Lu’s github">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#"><span class="nav-number">1.</span> <span class="nav-text">*</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#I’m-not-a-programmer-I’m-a-technology-farmer"><span class="nav-number">1.0.1.</span> <span class="nav-text">I’m not a programmer, I’m a technology farmer!</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Internals-深入解析Spring架构与设计原理"><span class="nav-number">1.</span> <span class="nav-text">Spring Internals 深入解析Spring架构与设计原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Preface"><span class="nav-number">2.</span> <span class="nav-text">Preface</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-core"><span class="nav-number">2.1.</span> <span class="nav-text">Spring core</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-AOP"><span class="nav-number">2.2.</span> <span class="nav-text">Spring AOP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-MVC"><span class="nav-number">2.3.</span> <span class="nav-text">Spring MVC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-Security"><span class="nav-number">2.4.</span> <span class="nav-text">Spring Security</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-Transaction"><span class="nav-number">2.5.</span> <span class="nav-text">Spring Transaction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-Data"><span class="nav-number">2.6.</span> <span class="nav-text">Spring Data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-Boot"><span class="nav-number">2.7.</span> <span class="nav-text">Spring Boot</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-Cloud"><span class="nav-number">2.8.</span> <span class="nav-text">Spring Cloud</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -695,11 +774,11 @@ Asion Lu’s github">
 
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
 </div>
 
 <div class="theme-info">
-  Theme -
+  主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Mist
   </a>

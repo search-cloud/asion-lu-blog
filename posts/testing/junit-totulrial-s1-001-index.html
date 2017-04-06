@@ -1,0 +1,1024 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="java,testing,junit," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Asoin Lu's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.png?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="JUnit 系列教程(一) JUnit概述&amp;emsp;&amp;emsp;JUnit是Java编程语言的单元测试框架。JUnit在测试驱动开发中一直很重要，它起源于统称为xUnit的单元测试框架。
+Overview&amp;emsp;&amp;emsp;软件测试是检查应用程序的功能确保其按照要求运行的过程。单元测试是在开发层面的；它是单个个体（类或方法）的测试。单元测试对于提高软件质量有着重要的帮助，在帮助软件公司向客户">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JUnit Tutorial 系列教程(一) JUnit概述">
+<meta property="og:url" content="http://luxuexian99.github.io/posts/testing/junit-totulrial-s1-001-index.html">
+<meta property="og:site_name" content="Asoin Lu's Blog">
+<meta property="og:description" content="JUnit 系列教程(一) JUnit概述&amp;emsp;&amp;emsp;JUnit是Java编程语言的单元测试框架。JUnit在测试驱动开发中一直很重要，它起源于统称为xUnit的单元测试框架。
+Overview&amp;emsp;&amp;emsp;软件测试是检查应用程序的功能确保其按照要求运行的过程。单元测试是在开发层面的；它是单个个体（类或方法）的测试。单元测试对于提高软件质量有着重要的帮助，在帮助软件公司向客户">
+<meta property="og:updated_time" content="2017-03-24T03:48:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JUnit Tutorial 系列教程(一) JUnit概述">
+<meta name="twitter:description" content="JUnit 系列教程(一) JUnit概述&amp;emsp;&amp;emsp;JUnit是Java编程语言的单元测试框架。JUnit在测试驱动开发中一直很重要，它起源于统称为xUnit的单元测试框架。
+Overview&amp;emsp;&amp;emsp;软件测试是检查应用程序的功能确保其按照要求运行的过程。单元测试是在开发层面的；它是单个个体（类或方法）的测试。单元测试对于提高软件质量有着重要的帮助，在帮助软件公司向客户">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://luxuexian99.github.io/posts/testing/junit-totulrial-s1-001-"/>
+
+
+
+
+
+  <title> JUnit Tutorial 系列教程(一) JUnit概述 | Asoin Lu's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Asoin Lu's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">A little bit.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Blog
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-java">
+          <a href="/categories/java" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-cloud"></i> <br />
+            
+            Java
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-life">
+          <a href="/categories/life" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-paint-brush"></i> <br />
+            
+            生活
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://luxuexian99.github.io/posts/testing/junit-totulrial-s1-001-index.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Asion Lu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/assets/img/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Asoin Lu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                JUnit Tutorial 系列教程(一) JUnit概述
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-24T10:07:23+08:00">
+                2017-03-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/testing/" itemprop="url" rel="index">
+                    <span itemprop="name">testing</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/posts/testing/junit-totulrial-s1-001-index.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/posts/testing/junit-totulrial-s1-001-index.html" class="leancloud_visitors" data-flag-title="JUnit Tutorial 系列教程(一) JUnit概述">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="JUnit-系列教程-一-JUnit概述"><a href="#JUnit-系列教程-一-JUnit概述" class="headerlink" title="JUnit 系列教程(一) JUnit概述"></a>JUnit 系列教程(一) JUnit概述</h1><p>&emsp;&emsp;JUnit是Java编程语言的单元测试框架。JUnit在测试驱动开发中一直很重要，它起源于统称为xUnit的单元测试框架。</p>
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>&emsp;&emsp;软件测试是检查应用程序的功能确保其按照要求运行的过程。单元测试是在开发层面的；它是单个个体（类或方法）的测试。单元测试对于提高软件质量有着重要的帮助，在帮助软件公司向客户提供优质的产品方面发挥关键作用。<br>单元测试可以通过两种方式进行：</p>
+<ul>
+<li>手动测试：在没有任何工具支持的情况下手动执行测试用例称为手动测试。</li>
+<li>自动测试：使用自动化工具进行工具支持和执行测试用例称为自动化测试。</li>
+</ul>
+<p>两种方式对比：</p>
+<table>
+<thead>
+<tr>
+<th>手动测试</th>
+<th>自动测试</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>耗时和乏味</strong> - 由于测试用例是由人力资源执行的，所以非常慢而繁琐。</td>
+<td><strong>快速</strong> - 自动化运行测试用例明显快于人力资源。</td>
+</tr>
+<tr>
+<td><strong>对人力资源的巨大投入</strong> - 由于测试用例需要手动执行，所以在手动测试中需要更多的测试人员。</td>
+<td><strong>减少对人力资源的投入</strong> - 使用自动化工具执行测试用例，因此在自动化测试中需要较少的测试人员。</td>
+</tr>
+<tr>
+<td><strong>不太可靠</strong> - 手动测试不太可靠，因为它必须解决人为错误。</td>
+<td><strong>更可靠</strong> - 自动化测试精确可靠。</td>
+</tr>
+<tr>
+<td><strong>不可编程</strong> - 无需编写可编写复杂测试来获取隐藏信息的编程。</td>
+<td><strong>可编程</strong> - 测试人员可以对复杂的测试进行编程，以提供隐藏的信息。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="什么是JUnit？"><a href="#什么是JUnit？" class="headerlink" title="什么是JUnit？"></a>什么是JUnit？</h3><p>&emsp;&emsp;JUnit是Java编程语言的单元测试框架。它是测试驱动开发中的关键角色，并且是统称为xUnit的单元测试框架系列。<br>&emsp;&emsp;JUnit提出了“首先测试然后编码”的想法，其强调为首先测试然后实现的一段代码设置测试数据。这种方法就像“测试一点，代码一点，测试一点，代码一点”。它提高了程序员的生产力和程序代码的稳定性，从而降低了程序员的压力和调试时间。</p>
+<h3 id="JUnit的特性"><a href="#JUnit的特性" class="headerlink" title="JUnit的特性"></a>JUnit的特性</h3><ul>
+<li>JUnit是一个开源框架，开源社区活跃。</li>
+<li>提供注解的方式来识别测试方法。</li>
+<li>提供用于测试预期结果的断言。</li>
+<li>提供运行测试的测试Runner。</li>
+<li>JUnit测试允许您更快地编写代码，从而提高质量。</li>
+<li>JUnit优雅简单。它不那么复杂，花费更少的时间。</li>
+<li>JUnit测试可以自动运行，并检查自己的结果并提供即时反馈。没有必要手动梳理测试结果的报告。</li>
+<li>JUnit测试可以组织成包含测试用例的测试套件，甚至其他测试套件。</li>
+<li>如果测试运行平稳，JUnit会显示一个绿色的测试进度，当测试失败时，它会变为红色。</li>
+</ul>
+<h3 id="什么是单元测试用例？"><a href="#什么是单元测试用例？" class="headerlink" title="什么是单元测试用例？"></a>什么是单元测试用例？</h3><p>&emsp;&emsp;单元测试用例是代码的一部分，可以确保代码（方法）的另一部分按预期工作。为了快速实现所需的结果，需要一个测试框架。JUnit是Java编程语言的完美单元测试框架。<br>&emsp;&emsp;正式的书面单元测试用例的特征在于已知的输入和预期的输出，在测试执行之前计算出来。已知输入应测试前提条件，预期输出应测试后期条件。<br>&emsp;&emsp;每个要求必须至少有两个单元测试用例 - 一个正测试和一个负测试。如果要求有次级要求，则每个子要求必须至少有两个测试用例为正值和负数。</p>
+<h3 id="第一个测试用例"><a href="#第一个测试用例" class="headerlink" title="第一个测试用例"></a>第一个测试用例</h3><figure class="highlight jsp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FirstJUnitTestCase</span> </span>&#123;</div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testString</span><span class="params">()</span> </span>&#123;</div><div class="line">        String str = <span class="string">"JUnut 已经成功运行！"</span>;</div><div class="line">        <span class="comment">// 断言String是否相等</span></div><div class="line">        assertEquals(<span class="string">"JUnut 已经成功运行！"</span>, str);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      Asion Lu
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://luxuexian99.github.io/posts/testing/junit-totulrial-s1-001-index.html" title="JUnit Tutorial 系列教程(一) JUnit概述">http://luxuexian99.github.io/posts/testing/junit-totulrial-s1-001-index.html</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+            <a href="/tags/testing/" rel="tag"># testing</a>
+          
+            <a href="/tags/junit/" rel="tag"># junit</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/java/java-array-and-memory.html" rel="next" title="Java Array 真的是静态的吗？">
+                <i class="fa fa-chevron-left"></i> Java Array 真的是静态的吗？
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/java/concurrency/java-concurrency-perspective-002-major-operations.html" rel="prev" title="Java Concurrency Perspective Major Operations (二)  </br> Java 并发透视之主要操作（二）">
+                Java Concurrency Perspective Major Operations (二)  </br> Java 并发透视之主要操作（二） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58d247635b3933ad" async = "async" ></script>
+</div>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/assets/img/avatar.png"
+               alt="Asion Lu" />
+          <p class="site-author-name" itemprop="name">Asion Lu</p>
+           
+              <p class="site-description motion-element" itemprop="description">I'm not a programmer, I'm a technology farmer!</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/luxuexian99" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/luHsian" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/AsoinLu" target="_blank" title="twitter">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.facebook.com/AsionLu/" target="_blank" title="facebook">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  facebook
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://plus.google.com/u/0/104844052523179213676" target="_blank" title="google-plus">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  google-plus
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="/assets/img/wechat.jpg" target="_blank" title="wechat">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  wechat
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JUnit-系列教程-一-JUnit概述"><span class="nav-number">1.</span> <span class="nav-text">JUnit 系列教程(一) JUnit概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Overview"><span class="nav-number">1.1.</span> <span class="nav-text">Overview</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是JUnit？"><span class="nav-number">1.1.1.</span> <span class="nav-text">什么是JUnit？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JUnit的特性"><span class="nav-number">1.1.2.</span> <span class="nav-text">JUnit的特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是单元测试用例？"><span class="nav-number">1.1.3.</span> <span class="nav-text">什么是单元测试用例？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第一个测试用例"><span class="nav-number">1.1.4.</span> <span class="nav-text">第一个测试用例</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Asion Lu</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "d1f3fe001bf242d990bb6bf710d0db4f",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Qjec5zmO0pI0VYyE0pHrp3Eq-gzGzoHsz", "Xln2N2N1XvwKlOHzv511qY41");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
