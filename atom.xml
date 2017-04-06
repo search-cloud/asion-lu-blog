@@ -88,79 +88,6 @@ new Thread()--&gt;|     New     |------------&gt;\  Runnable   /&lt;---------+
   </entry>
   
   <entry>
-    <title>Java Concurrency Perspective Major Operations (二)  &lt;/br&gt; Java 并发透视之主要操作（二）</title>
-    <link href="http://luxuexian99.github.io/posts/java/concurrency/java-concurrency-perspective-002-major-operations.html"/>
-    <id>http://luxuexian99.github.io/posts/java/concurrency/java-concurrency-perspective-002-major-operations.html</id>
-    <published>2017-03-24T04:07:01.000Z</published>
-    <updated>2017-04-05T09:53:06.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Java-并发透视之主要操作（二）"><a href="#Java-并发透视之主要操作（二）" class="headerlink" title="Java 并发透视之主要操作（二）"></a>Java 并发透视之主要操作（二）</h1><h2 id="java-多线程的主要操作"><a href="#java-多线程的主要操作" class="headerlink" title="java 多线程的主要操作"></a>java 多线程的主要操作</h2><table>
-<thead>
-<tr>
-<th style="text-align:center">方法</th>
-<th style="text-align:left">简介</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><strong>sleep(long)</strong></td>
-<td style="text-align:left">该方法使当前线程睡眠一定时间，单位为毫秒（ms）</td>
-</tr>
-<tr>
-<td style="text-align:center"><strong>getPriority()</strong></td>
-<td style="text-align:left">该方法可以获取线程的优先级</td>
-</tr>
-<tr>
-<td style="text-align:center"><strong>setPriority(int)</strong></td>
-<td style="text-align:left">该方法设置线程的优先级，但是并不能保证按这个优先级优先运行</td>
-</tr>
-<tr>
-<td style="text-align:center"><strong>yield()</strong></td>
-<td style="text-align:left">该方法让出CUP资源，让其他线程先执行</td>
-</tr>
-<tr>
-<td style="text-align:center"><strong>join()</strong></td>
-<td style="text-align:left">该方法合并一个线程到当前线程</td>
-</tr>
-<tr>
-<td style="text-align:center"><strong>wait()</strong></td>
-<td style="text-align:left">当前线程等待其他线程调用notify()后才会继续运行</td>
-</tr>
-<tr>
-<td style="text-align:center"><strong>notify()</strong></td>
-<td style="text-align:left">该方法唤醒一个等待中的线程</td>
-</tr>
-<tr>
-<td style="text-align:center"><strong>notifyAll()</strong></td>
-<td style="text-align:left">该方法所有正在等待的线程</td>
-</tr>
-</tbody>
-</table>
-<h2 id="sleep"><a href="#sleep" class="headerlink" title="sleep()"></a>sleep()</h2><p>该方法使当前线程睡眠一定时间，单位为毫秒（ms）<br>还是上一节的例子，但是我们在run()方法的循环体中添加了 Thread.sleep(50); 语句。<br>这样输出的结果就是，Thread-1：倒计时一次，Thread-2：倒计时一次。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">Creating Thread-1</div><div class="line">Starting Thread-1</div><div class="line">Creating Thread-2</div><div class="line">Starting Thread-2</div><div class="line">Running Thread-1</div><div class="line">Thread: Thread-1, 10</div><div class="line">Running Thread-2</div><div class="line">Thread: Thread-2, 10</div><div class="line">Thread: Thread-2, 9</div><div class="line">Thread: Thread-1, 9</div><div class="line">Thread: Thread-2, 8</div><div class="line">Thread: Thread-1, 8</div><div class="line">Thread: Thread-2, 7</div><div class="line">Thread: Thread-1, 7</div><div class="line">Thread: Thread-1, 6</div><div class="line">Thread: Thread-2, 6</div><div class="line">Thread: Thread-2, 5</div><div class="line">Thread: Thread-1, 5</div><div class="line">Thread: Thread-2, 4</div><div class="line">Thread: Thread-1, 4</div><div class="line">Thread: Thread-2, 3</div><div class="line">Thread: Thread-1, 3</div><div class="line">Thread: Thread-2, 2</div><div class="line">Thread: Thread-1, 2</div><div class="line">Thread: Thread-2, 1</div><div class="line">Thread: Thread-1, 1</div><div class="line">Thread Thread-2 exiting.</div><div class="line">Thread Thread-1 exiting.</div></pre></td></tr></table></figure></p>
-<div class="note danger"><p>因为，每当循环每执行一次，线程就睡眠50毫秒，使得倒计时比较均匀。</p>
-</div>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 重写run()方法</div><div class="line"> * 从100倒数到1。</div><div class="line"> */</div><div class="line">@Override</div><div class="line">public void run() &#123;</div><div class="line">    System.out.println(&quot;Running &quot; + threadName);</div><div class="line">    try &#123;</div><div class="line">        for (int i = 100; i &gt; 0; i--) &#123;</div><div class="line">            System.out.println(&quot;Thread: &quot; + threadName + &quot;, &quot; + i);</div><div class="line">            // Let the thread sleep for a while.</div><div class="line">            Thread.sleep(50);</div><div class="line">        &#125;</div><div class="line">    &#125; catch (InterruptedException e) &#123;</div><div class="line">        System.out.println(&quot;Thread &quot; + threadName + &quot; interrupted.&quot;);</div><div class="line">    &#125;</div><div class="line">    System.out.println(&quot;Thread &quot; + threadName + &quot; exiting.&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="setPriority-int-amp-getPriority"><a href="#setPriority-int-amp-getPriority" class="headerlink" title="setPriority(int) &amp; getPriority()"></a>setPriority(int) &amp; getPriority()</h2><p><strong>getPriority()</strong>方法可以获取该线程的优先级<br><strong>setPriority(int)</strong>方法设置线程的优先级，但是JVM并不能保证按这个优先级优先运行</p>
-<h2 id="yield"><a href="#yield" class="headerlink" title="yield()"></a>yield()</h2><h2 id="join"><a href="#join" class="headerlink" title="join()"></a>join()</h2><h2 id="wait"><a href="#wait" class="headerlink" title="wait()"></a>wait()</h2><h2 id="notify"><a href="#notify" class="headerlink" title="notify()"></a>notify()</h2><h2 id="notifyAll"><a href="#notifyAll" class="headerlink" title="notifyAll()"></a>notifyAll()</h2>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Java-并发透视之主要操作（二）&quot;&gt;&lt;a href=&quot;#Java-并发透视之主要操作（二）&quot; class=&quot;headerlink&quot; title=&quot;Java 并发透视之主要操作（二）&quot;&gt;&lt;/a&gt;Java 并发透视之主要操作（二）&lt;/h1&gt;&lt;h2 id=&quot;java-
-    
-    </summary>
-    
-      <category term="java" scheme="http://luxuexian99.github.io/categories/java/"/>
-    
-      <category term="concurrency" scheme="http://luxuexian99.github.io/categories/java/concurrency/"/>
-    
-    
-      <category term="java" scheme="http://luxuexian99.github.io/tags/java/"/>
-    
-      <category term="concurrency" scheme="http://luxuexian99.github.io/tags/concurrency/"/>
-    
-  </entry>
-  
-  <entry>
     <title>JUnit Tutorial 系列教程(一) JUnit概述</title>
     <link href="http://luxuexian99.github.io/posts/testing/junit-totulrial-s1-001-index.html"/>
     <id>http://luxuexian99.github.io/posts/testing/junit-totulrial-s1-001-index.html</id>
@@ -235,35 +162,6 @@ new Thread()--&gt;|     New     |------------&gt;\  Runnable   /&lt;---------+
   </entry>
   
   <entry>
-    <title>Java Array 真的是静态的吗？</title>
-    <link href="http://luxuexian99.github.io/posts/java/java-array-and-memory.html"/>
-    <id>http://luxuexian99.github.io/posts/java/java-array-and-memory.html</id>
-    <published>2017-03-21T14:17:16.000Z</published>
-    <updated>2017-03-22T08:35:08.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><div class="note"><br>    <h5>数组是什么？</h5><br>    <p>数组</p><br></div>
-
-<p>这个应该可以</p>
-<h2 id="Java的数组有什么特殊之处？"><a href="#Java的数组有什么特殊之处？" class="headerlink" title="Java的数组有什么特殊之处？"></a>Java的数组有什么特殊之处？</h2><div class="note info"><br>    <h5>Java的数组？</h5><br>    <p>Java的数组有什么特殊之处</p><br></div>
-
-<h2 id="Java的数组的坑"><a href="#Java的数组的坑" class="headerlink" title="Java的数组的坑"></a>Java的数组的坑</h2><div class="note warning"><br>    <h5>Java的数组的坑</h5><br>    <p>Java的数组的坑</p><br></div>
-
-<h2 id="Java的数组与字符串"><a href="#Java的数组与字符串" class="headerlink" title="Java的数组与字符串"></a>Java的数组与字符串</h2><div class="note unreleased"><br>    <h5>Java的数组与字符串</h5><br>    <p>Java的数组的坑</p><br></div>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;数组&quot;&gt;&lt;a href=&quot;#数组&quot; class=&quot;headerlink&quot; title=&quot;数组&quot;&gt;&lt;/a&gt;数组&lt;/h2&gt;&lt;div class=&quot;note&quot;&gt;&lt;br&gt;    &lt;h5&gt;数组是什么？&lt;/h5&gt;&lt;br&gt;    &lt;p&gt;数组&lt;/p&gt;&lt;br&gt;&lt;/div&gt;
-
-&lt;p&gt;
-    
-    </summary>
-    
-      <category term="java" scheme="http://luxuexian99.github.io/categories/java/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>Java leaning road 从菜佳娃到佳娃假购师</title>
     <link href="http://luxuexian99.github.io/posts/java/java-leaning-road.html"/>
     <id>http://luxuexian99.github.io/posts/java/java-leaning-road.html</id>
@@ -283,82 +181,6 @@ new Thread()--&gt;|     New     |------------&gt;\  Runnable   /&lt;---------+
     
     
       <category term="java" scheme="http://luxuexian99.github.io/tags/java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>为什么需要HashMap数据结构？</title>
-    <link href="http://luxuexian99.github.io/posts/algorithm/why-hashing.html"/>
-    <id>http://luxuexian99.github.io/posts/algorithm/why-hashing.html</id>
-    <published>2017-02-09T16:10:20.000Z</published>
-    <updated>2017-03-22T09:16:13.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="为什么需要HashMap数据结构？"><a href="#为什么需要HashMap数据结构？" class="headerlink" title="为什么需要HashMap数据结构？"></a>为什么需要HashMap数据结构？</h2><h2 id="引出问题"><a href="#引出问题" class="headerlink" title="引出问题"></a>引出问题</h2><ul>
-<li>如果，我们现在需要重10个书中查找其中的某一个数，你会想到什么方式？</li>
-</ul>
-<figure class="highlight jsp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">pubulic <span class="class"><span class="keyword">class</span> <span class="title">HashMap</span>&lt;<span class="title">K</span>, <span class="title">V</span>&gt; </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> V <span class="title">put</span><span class="params">(V v)</span> </span>&#123;</div><div class="line">    </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="解决问题思路"><a href="#解决问题思路" class="headerlink" title="解决问题思路"></a>解决问题思路</h2><ul>
-<li>使用最笨的方法，从头到尾一个挨着一个的查找</li>
-</ul>
-<h2 id="优化解决问题的方案"><a href="#优化解决问题的方案" class="headerlink" title="优化解决问题的方案"></a>优化解决问题的方案</h2><ul>
-<li>还有其他别的方案吗？</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;为什么需要HashMap数据结构？&quot;&gt;&lt;a href=&quot;#为什么需要HashMap数据结构？&quot; class=&quot;headerlink&quot; title=&quot;为什么需要HashMap数据结构？&quot;&gt;&lt;/a&gt;为什么需要HashMap数据结构？&lt;/h2&gt;&lt;h2 id=&quot;引出问题&quot;
-    
-    </summary>
-    
-      <category term="algorithm" scheme="http://luxuexian99.github.io/categories/algorithm/"/>
-    
-    
-      <category term="algorithm" scheme="http://luxuexian99.github.io/tags/algorithm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>深入解析Spring架构与设计原理</title>
-    <link href="http://luxuexian99.github.io/posts/spring/spring-internals.html"/>
-    <id>http://luxuexian99.github.io/posts/spring/spring-internals.html</id>
-    <published>2017-02-06T15:16:42.000Z</published>
-    <updated>2017-03-22T08:03:21.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Spring-Internals-深入解析Spring架构与设计原理"><a href="#Spring-Internals-深入解析Spring架构与设计原理" class="headerlink" title="Spring Internals 深入解析Spring架构与设计原理"></a>Spring Internals 深入解析Spring架构与设计原理</h2><h2 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h2><ul>
-<li>Spring的设计理念和架构</li>
-<li>Spring core</li>
-<li>Spring AOP</li>
-<li>Spring MVC</li>
-<li>Spring Security</li>
-<li>Spring Transaction</li>
-<li>Spring Data</li>
-<li>Spring Boot</li>
-<li>Spring Cloud</li>
-<li>Spring的设计理念和架构</li>
-</ul>
-<h3 id="Spring-core"><a href="#Spring-core" class="headerlink" title="Spring core"></a>Spring core</h3><p>   Spring core</p>
-<h3 id="Spring-AOP"><a href="#Spring-AOP" class="headerlink" title="Spring AOP"></a>Spring AOP</h3><p>   Spring AOP</p>
-<h3 id="Spring-MVC"><a href="#Spring-MVC" class="headerlink" title="Spring MVC"></a>Spring MVC</h3><p>   Spring MVC</p>
-<h3 id="Spring-Security"><a href="#Spring-Security" class="headerlink" title="Spring Security"></a>Spring Security</h3><p>   Spring Security</p>
-<h3 id="Spring-Transaction"><a href="#Spring-Transaction" class="headerlink" title="Spring Transaction"></a>Spring Transaction</h3><p>   Spring Transaction</p>
-<h3 id="Spring-Data"><a href="#Spring-Data" class="headerlink" title="Spring Data"></a>Spring Data</h3><p>   Spring Data</p>
-<h3 id="Spring-Boot"><a href="#Spring-Boot" class="headerlink" title="Spring Boot"></a>Spring Boot</h3><p>   Spring Boot</p>
-<h3 id="Spring-Cloud"><a href="#Spring-Cloud" class="headerlink" title="Spring Cloud"></a>Spring Cloud</h3><p>   Spring Cloud</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Spring-Internals-深入解析Spring架构与设计原理&quot;&gt;&lt;a href=&quot;#Spring-Internals-深入解析Spring架构与设计原理&quot; class=&quot;headerlink&quot; title=&quot;Spring Internals 深入解析Spr
-    
-    </summary>
-    
-      <category term="java" scheme="http://luxuexian99.github.io/categories/java/"/>
-    
-      <category term="spring" scheme="http://luxuexian99.github.io/categories/java/spring/"/>
-    
-    
-      <category term="spring" scheme="http://luxuexian99.github.io/tags/spring/"/>
     
   </entry>
   

@@ -2,13 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://luxuexian99.github.io/posts/java/concurrency/java-concurrency-perspective-002-major-operations.html</loc>
-    
-    <lastmod>2017-04-05T09:53:06.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://luxuexian99.github.io/posts/java/concurrency/java-concurrency-perspective-001-overview.html</loc>
     
     <lastmod>2017-03-29T09:11:01.000Z</lastmod>
@@ -51,30 +44,9 @@
   </url>
   
   <url>
-    <loc>http://luxuexian99.github.io/posts/algorithm/why-hashing.html</loc>
-    
-    <lastmod>2017-03-22T09:16:13.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://luxuexian99.github.io/posts/java/java-array-and-memory.html</loc>
-    
-    <lastmod>2017-03-22T08:35:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://luxuexian99.github.io/posts/java/java-leaning-road.html</loc>
     
     <lastmod>2017-03-22T08:25:59.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://luxuexian99.github.io/posts/spring/spring-internals.html</loc>
-    
-    <lastmod>2017-03-22T08:03:21.000Z</lastmod>
     
   </url>
   
