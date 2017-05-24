@@ -13,7 +13,7 @@ favicon: /assets/img/favicon.png
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://luxuexian99.github.io
+url: http://asion.club
 root: /
 #permalink: :category/:year/:month/:day/:title/
 permalink: posts/:title.html
@@ -75,7 +75,7 @@ theme: next #maupassant #jekyll #hueman #yilia #next #material #landscape
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:luxuexian99/luxuexian99.github.io.git
+  repo: git@github.com:search-cloud/asion-lu-blog.git
   branch: master
 
 
@@ -91,7 +91,7 @@ jekyll:
 
 # social
 social:
-  github: https://github.com/luxuexian99
+  github: https://github.com/search-cloud
   weibo: http://weibo.com/luHsian
   twitter: https://twitter.com/AsoinLu
   facebook: https://www.facebook.com/AsionLu/
