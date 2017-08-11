@@ -6,7 +6,7 @@
   
   <link href="http://luxuexian99.github.io/"/>
   <updated>2017-03-29T09:11:01.000Z</updated>
-  <id>http://luxuexian99.github.io/</id>
+  <id>http://search-cloud.github.io/</id>
   
   <author>
     <name>Asion Lu</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>Java Concurrency Perspective Overview (一) &lt;/br&gt; Java 并发透视之初窥探（一）</title>
-    <link href="http://luxuexian99.github.io/posts/java/concurrency/java-concurrency-perspective-001-overview.html"/>
-    <id>http://luxuexian99.github.io/posts/java/concurrency/java-concurrency-perspective-001-overview.html</id>
+    <link href="http://search-cloud.github.io/posts/java/concurrency/java-concurrency-perspective-001-overview.html"/>
+    <id>http://search-cloud.github.io/posts/java/concurrency/java-concurrency-perspective-001-overview.html</id>
     <published>2017-03-24T04:07:01.000Z</published>
     <updated>2017-03-29T09:11:01.000Z</updated>
     
@@ -76,21 +76,21 @@ new Thread()--&gt;|     New     |------------&gt;\  Runnable   /&lt;---------+
     
     </summary>
     
-      <category term="java" scheme="http://luxuexian99.github.io/categories/java/"/>
+      <category term="java" scheme="http://search-cloud.github.io/categories/java/"/>
     
-      <category term="concurrency" scheme="http://luxuexian99.github.io/categories/java/concurrency/"/>
+      <category term="concurrency" scheme="http://search-cloud.github.io/categories/java/concurrency/"/>
     
     
-      <category term="java" scheme="http://luxuexian99.github.io/tags/java/"/>
+      <category term="java" scheme="http://search-cloud.github.io/tags/java/"/>
     
-      <category term="concurrency" scheme="http://luxuexian99.github.io/tags/concurrency/"/>
+      <category term="concurrency" scheme="http://search-cloud.github.io/tags/concurrency/"/>
     
   </entry>
   
   <entry>
     <title>JUnit Tutorial 系列教程(一) JUnit概述</title>
-    <link href="http://luxuexian99.github.io/posts/testing/junit-totulrial-s1-001-index.html"/>
-    <id>http://luxuexian99.github.io/posts/testing/junit-totulrial-s1-001-index.html</id>
+    <link href="http://search-cloud.github.io/posts/testing/junit-totulrial-s1-001-index.html"/>
+    <id>http://search-cloud.github.io/posts/testing/junit-totulrial-s1-001-index.html</id>
     <published>2017-03-24T02:07:23.000Z</published>
     <updated>2017-03-24T03:48:42.000Z</updated>
     
@@ -148,23 +148,23 @@ new Thread()--&gt;|     New     |------------&gt;\  Runnable   /&lt;---------+
     
     </summary>
     
-      <category term="java" scheme="http://luxuexian99.github.io/categories/java/"/>
+      <category term="java" scheme="http://search-cloud.github.io/categories/java/"/>
     
-      <category term="testing" scheme="http://luxuexian99.github.io/categories/java/testing/"/>
+      <category term="testing" scheme="http://search-cloud.github.io/categories/java/testing/"/>
     
     
-      <category term="java" scheme="http://luxuexian99.github.io/tags/java/"/>
+      <category term="java" scheme="http://search-cloud.github.io/tags/java/"/>
     
-      <category term="testing" scheme="http://luxuexian99.github.io/tags/testing/"/>
+      <category term="testing" scheme="http://search-cloud.github.io/tags/testing/"/>
     
-      <category term="junit" scheme="http://luxuexian99.github.io/tags/junit/"/>
+      <category term="junit" scheme="http://search-cloud.github.io/tags/junit/"/>
     
   </entry>
   
   <entry>
     <title>Java leaning road 从菜佳娃到佳娃假购师</title>
-    <link href="http://luxuexian99.github.io/posts/java/java-leaning-road.html"/>
-    <id>http://luxuexian99.github.io/posts/java/java-leaning-road.html</id>
+    <link href="http://search-cloud.github.io/posts/java/java-leaning-road.html"/>
+    <id>http://search-cloud.github.io/posts/java/java-leaning-road.html</id>
     <published>2017-03-21T13:48:57.000Z</published>
     <updated>2017-03-22T08:25:59.000Z</updated>
     
@@ -177,17 +177,17 @@ new Thread()--&gt;|     New     |------------&gt;\  Runnable   /&lt;---------+
     
     </summary>
     
-      <category term="java" scheme="http://luxuexian99.github.io/categories/java/"/>
+      <category term="java" scheme="http://search-cloud.github.io/categories/java/"/>
     
     
-      <category term="java" scheme="http://luxuexian99.github.io/tags/java/"/>
+      <category term="java" scheme="http://search-cloud.github.io/tags/java/"/>
     
   </entry>
   
   <entry>
     <title>道德经</title>
-    <link href="http://luxuexian99.github.io/posts/life/my-life-way.html"/>
-    <id>http://luxuexian99.github.io/posts/life/my-life-way.html</id>
+    <link href="http://search-cloud.github.io/posts/life/my-life-way.html"/>
+    <id>http://search-cloud.github.io/posts/life/my-life-way.html</id>
     <published>2017-01-17T07:31:36.000Z</published>
     <updated>2017-03-22T07:57:19.000Z</updated>
     
@@ -244,19 +244,19 @@ new Thread()--&gt;|     New     |------------&gt;\  Runnable   /&lt;---------+
     
     </summary>
     
-      <category term="life" scheme="http://luxuexian99.github.io/categories/life/"/>
+      <category term="life" scheme="http://search-cloud.github.io/categories/life/"/>
     
     
-      <category term="life" scheme="http://luxuexian99.github.io/tags/life/"/>
+      <category term="life" scheme="http://search-cloud.github.io/tags/life/"/>
     
-      <category term="国学" scheme="http://luxuexian99.github.io/tags/%E5%9B%BD%E5%AD%A6/"/>
+      <category term="国学" scheme="http://search-cloud.github.io/tags/%E5%9B%BD%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>Hexo Quick Start</title>
-    <link href="http://luxuexian99.github.io/posts/hexo-quick-start.html"/>
-    <id>http://luxuexian99.github.io/posts/hexo-quick-start.html</id>
+    <link href="http://search-cloud.github.io/posts/hexo-quick-start.html"/>
+    <id>http://search-cloud.github.io/posts/hexo-quick-start.html</id>
     <published>2016-10-26T20:56:25.000Z</published>
     <updated>2017-03-21T16:54:43.000Z</updated>
     
@@ -277,17 +277,17 @@ new Thread()--&gt;|     New     |------------&gt;\  Runnable   /&lt;---------+
     
     </summary>
     
-      <category term="hexo" scheme="http://luxuexian99.github.io/categories/hexo/"/>
+      <category term="hexo" scheme="http://search-cloud.github.io/categories/hexo/"/>
     
     
-      <category term="hexo" scheme="http://luxuexian99.github.io/tags/hexo/"/>
+      <category term="hexo" scheme="http://search-cloud.github.io/tags/hexo/"/>
     
   </entry>
   
   <entry>
     <title>Git版本控制与Git Flow工作流程</title>
-    <link href="http://luxuexian99.github.io/posts/git-flow.html"/>
-    <id>http://luxuexian99.github.io/posts/git-flow.html</id>
+    <link href="http://search-cloud.github.io/posts/git-flow.html"/>
+    <id>http://search-cloud.github.io/posts/git-flow.html</id>
     <published>2016-08-26T12:33:25.000Z</published>
     <updated>2017-03-21T16:54:47.000Z</updated>
     
@@ -415,16 +415,16 @@ new Thread()--&gt;|     New     |------------&gt;\  Runnable   /&lt;---------+
     
     </summary>
     
-      <category term="VCS" scheme="http://luxuexian99.github.io/categories/VCS/"/>
+      <category term="VCS" scheme="http://search-cloud.github.io/categories/VCS/"/>
     
-      <category term="git" scheme="http://luxuexian99.github.io/categories/VCS/git/"/>
+      <category term="git" scheme="http://search-cloud.github.io/categories/VCS/git/"/>
     
     
-      <category term="git" scheme="http://luxuexian99.github.io/tags/git/"/>
+      <category term="git" scheme="http://search-cloud.github.io/tags/git/"/>
     
-      <category term="git-flow" scheme="http://luxuexian99.github.io/tags/git-flow/"/>
+      <category term="git-flow" scheme="http://search-cloud.github.io/tags/git-flow/"/>
     
-      <category term="VCS" scheme="http://luxuexian99.github.io/tags/VCS/"/>
+      <category term="VCS" scheme="http://search-cloud.github.io/tags/VCS/"/>
     
   </entry>
   
