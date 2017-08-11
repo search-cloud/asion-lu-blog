@@ -25,7 +25,7 @@ tags: [java, concurrency]
 该方法使当前线程睡眠一定时间，单位为毫秒（ms）
 还是上一节的例子，但是我们在run()方法的循环体中添加了 Thread.sleep(50); 语句。
 这样输出的结果就是，Thread-1：倒计时一次，Thread-2：倒计时一次。
-```properties
+```
 Creating Thread-1
 Starting Thread-1
 Creating Thread-2
@@ -56,10 +56,115 @@ Thread Thread-2 exiting.
 Thread Thread-1 exiting.
 ```
 {% note danger %}
-因为，每当循环每执行一次，线程就睡眠50毫秒，使得倒计时比较均匀。
+因为，循环每执行一次，线程就睡眠50毫秒，所以，使得倒计时比较均匀。
+Thread-1倒计时一次，然后，Thread-2倒计时一次。
+{% endnote %}
+例子：
+
+```java
+package io.asion.concurrent;
+
+import org.junit.Test;
+
+/**
+ * 实现Runnable接口的方式，创建线程
+ *
+ * @author Asion
+ * @since 2017/03/24
+ */
+class RunnableDemo implements Runnable {
+    // 持有Thread的一个引用
+    private Thread t;
+    // 线程名称
+    private String threadName;
+
+    /**
+     * 构造一个Runnable实例
+     *
+     * @param name 线程名称
+     */
+    RunnableDemo(String name) {
+        threadName = name;
+        System.out.println("Creating " + threadName);
+    }
+
+    /**
+     * 重写run()方法
+     * 从100倒数到1。
+     */
+    @Override
+    public void run() {
+        System.out.println("Running " + threadName);
+        try {
+            for (int i = 10; i > 0; i--) {
+                System.out.println("Thread: " + threadName + ", " + i);
+                Thread.sleep(50);
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Thread " + threadName + " exiting.");
+    }
+
+    /**
+     * 普通start()方法
+     */
+    void start() {
+        System.out.println("Starting " + threadName);
+        if (t == null) {
+            t = new Thread(this, threadName);
+            // 真正调用线程类的start()方法，启动线程
+            t.start();
+        }
+    }
+}
+
+public class TestRunnableSleep {
+    // 启动两个线程测试
+    @Test
+    public void testRunnableSleep() {
+        RunnableDemo r1 = new RunnableDemo("Thread-1");
+        r1.start();
+
+        RunnableDemo r2 = new RunnableDemo("Thread-2");
+        r2.start();
+    }
+}
+```
+
+## setPriority(int) & getPriority()
+{% note danger %}
+**getPriority()**方法可以获取该线程的优先级
+__setPriority(int)__方法设置线程的优先级，但是JVM并不能保证按这个优先级优先运行
 {% endnote %}
 
-```
+```java
+package io.asion.concurrent;
+
+import org.junit.Test;
+
+/**
+ * 实现Runnable接口的方式，创建线程
+ *
+ * @author Asion
+ * @since 2017/03/24
+ */
+class PriorityDemo implements Runnable {
+    // 持有Thread的一个引用
+    private Thread t;
+    // 线程名称
+    private String threadName;
+
+    /**
+     * 构造一个Runnable实例
+     *
+     * @param name 线程名称
+     */
+    PriorityDemo(String name) {
+        threadName = name;
+        System.out.println("Creating " + threadName);
+    }
+
     /**
      * 重写run()方法
      * 从100倒数到1。
@@ -70,36 +175,48 @@ Thread Thread-1 exiting.
         try {
             for (int i = 100; i > 0; i--) {
                 System.out.println("Thread: " + threadName + ", " + i);
-                // Let the thread sleep for a while.
                 Thread.sleep(50);
             }
         } catch (InterruptedException e) {
-            System.out.println("Thread " + threadName + " interrupted.");
+            e.printStackTrace();
         }
         System.out.println("Thread " + threadName + " exiting.");
     }
 
-```
+    /**
+     * 普通start()方法
+     */
+    void start() {
+        System.out.println("Starting " + threadName);
+        if (t == null) {
+            t = new Thread(this, threadName);
+            // 真正调用线程类的start()方法，启动线程
+            t.start();
+        }
+    }
 
-## setPriority(int) & getPriority()
-**getPriority()**方法可以获取该线程的优先级
-__setPriority(int)__方法设置线程的优先级，但是JVM并不能保证按这个优先级优先运行
+    void start(Thread t) {
+        this.t = t;
+        this.t.start();
+    }
 
-```
-void start(Thread t) {
-    this.t = t;
-    this.t.start();
 }
 
-PriorityDemo r1 = new PriorityDemo("Thread-1");
-Thread thread = new Thread(r1, "Thread-1");
-thread.setPriority(Thread.MIN_PRIORITY);
-r1.start(thread);
+public class TestPriority {
+    // 启动两个线程测试
+    @Test
+    public void testPriority() {
+        PriorityDemo r1 = new PriorityDemo("Thread-1");
+        Thread thread = new Thread(r1, "Thread-1");
+        thread.setPriority(Thread.MIN_PRIORITY);
+        r1.start(thread);
 
-PriorityDemo r2 = new PriorityDemo("Thread-2");
-Thread thread1 = new Thread(r1, "Thread-2");
-System.out.println(thread1.getPriority());
-r2.start();
+        PriorityDemo r2 = new PriorityDemo("Thread-2");
+        Thread thread1 = new Thread(r1, "Thread-2");
+        System.out.println(thread1.getPriority());
+        r2.start();
+    }
+}
 ```
 
 ## yield()
@@ -108,13 +225,18 @@ Thread.yield()
 给其他线程让出CUP资源，让其他线程先执行。
 
 ```
+package io.asion.concurrent;
+
+import org.junit.Test;
+
 /**
  * @author Asion.
  * @since 2017/4/5.
  */
 public class TestYield {
     // 启动两个线程测试
-    public static void main(String args[]) {
+    @Test
+    public void testYield() {
         YieldDemo r1 = new YieldDemo("Thread-1");
         r1.start();
 
@@ -122,7 +244,6 @@ public class TestYield {
         r2.start();
     }
 }
-
 
 /**
  * 实现Runnable接口的方式，创建线程
@@ -155,7 +276,7 @@ class YieldDemo implements Runnable {
         System.out.println("Running " + threadName);
         for (int i = 10; i > 0; i--) {
             System.out.println("Thread: " + threadName + ", " + i);
-            // 只要碰到2的倍数就让给其他线程执行
+            // 只要碰到10的倍数就让给其他线程执行
             if (i % 2 == 0) {
                 Thread.yield();
                 System.out.println("Thread: " + threadName + ", yield");
@@ -182,9 +303,10 @@ class YieldDemo implements Runnable {
     }
 
 }
-
 ```
+{% note danger %}
 例子中，只要碰到2的倍数就让给其他线程执行
+{% endnote %}
 输出的结果:
 ```
 Creating Thread-1
@@ -232,16 +354,20 @@ Process finished with exit code 0
 
 ## join()
 
-
-join demo:
+join 例子:
 ```
+package io.asion.concurrent;
+
+import org.junit.Test;
+
 /**
  * @author Asion.
  * @since 2017/4/9.
  */
 public class TestJoin {
     // 启动两个线程测试
-    public static void main(String args[]) {
+    @Test
+    public void testJion() {
         JoinDemo r1 = new JoinDemo("Thread-1");
         Thread thread = new Thread(r1, "Thread-1");
         r1.start(thread);
@@ -320,9 +446,10 @@ class JoinDemo implements Runnable {
         }
     }
 }
-
 ```
+{% note danger %}
 例子中，r1、r2两个线程都调用了join(),所以main线程必须等待r1、r2线程执行完成，才可以往下执行。
+{% endnote %}
 输出结果:
 ```
 Creating Thread-1
@@ -367,6 +494,3 @@ Thread main1 finish.
 
 ## wait() & notify()/notifyAll()
 
-
-
-    
