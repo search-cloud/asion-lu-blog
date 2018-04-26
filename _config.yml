@@ -13,7 +13,7 @@ favicon: /assets/img/favicon.png
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://asion.club
+url: http://seekheap.com
 root: /
 #permalink: :category/:year/:month/:day/:title/
 permalink: posts/:title.html
