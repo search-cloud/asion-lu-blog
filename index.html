@@ -77,7 +77,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="Asoin Lu's Blog" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="Asion Lu's Blog" type="application/atom+xml" />
 
 
 
@@ -91,12 +91,13 @@
 
 <meta name="description" content="I&apos;m not a programmer, I&apos;m a technology farmer!">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Asoin Lu's Blog">
-<meta property="og:url" content="http://luxuexian99.github.io/index.html">
-<meta property="og:site_name" content="Asoin Lu's Blog">
+<meta property="og:title" content="Asion Lu&#39;s Blog">
+<meta property="og:url" content="http://asion.club/index.html">
+<meta property="og:site_name" content="Asion Lu&#39;s Blog">
 <meta property="og:description" content="I&apos;m not a programmer, I&apos;m a technology farmer!">
+<meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Asoin Lu's Blog">
+<meta name="twitter:title" content="Asion Lu&#39;s Blog">
 <meta name="twitter:description" content="I&apos;m not a programmer, I&apos;m a technology farmer!">
 
 
@@ -125,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://luxuexian99.github.io/"/>
+  <link rel="canonical" href="http://asion.club/"/>
 
 
 
 
 
-  <title> Asoin Lu's Blog </title>
+  <title> Asion Lu's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -169,7 +170,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Asoin Lu's Blog</span>
+        <span class="site-title">Asion Lu's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -292,7 +293,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://luxuexian99.github.io/posts/java/concurrency/java-concurrency-perspective-001-overview.html">
+    <link itemprop="mainEntityOfPage" href="http://asion.club/posts/java/concurrency/java-concurrency-perspective-003-inter-threads-communication.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Asion Lu">
@@ -301,7 +302,367 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Asoin Lu's Blog">
+      <meta itemprop="name" content="Asion Lu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/posts/java/concurrency/java-concurrency-perspective-003-inter-threads-communication.html" itemprop="url">
+                  Java Concurrency Perspective Inter-thread Communication（三）Java并发透视之线程间通信
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-17T17:30:31+08:00">
+                2017-08-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/concurrency/" itemprop="url" rel="index">
+                    <span itemprop="name">concurrency</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/posts/java/concurrency/java-concurrency-perspective-003-inter-threads-communication.html" class="leancloud_visitors" data-flag-title="Java Concurrency Perspective Inter-thread Communication（三）Java并发透视之线程间通信">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          If you are aware of interprocess communication then it will be easy for you to understand interthread communication. Interthread communication is impo
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/posts/java/concurrency/java-concurrency-perspective-003-inter-threads-communication.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://asion.club/posts/java/concurrency/java-concurrency-perspective-002-major-operations.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Asion Lu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/assets/img/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Asion Lu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/posts/java/concurrency/java-concurrency-perspective-002-major-operations.html" itemprop="url">
+                  Java Concurrency Perspective Major Operations (二) </br> Java 并发透视之主要操作
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-17T14:00:01+08:00">
+                2017-08-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/concurrency/" itemprop="url" rel="index">
+                    <span itemprop="name">concurrency</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/posts/java/concurrency/java-concurrency-perspective-002-major-operations.html" class="leancloud_visitors" data-flag-title="Java Concurrency Perspective Major Operations (二) </br> Java 并发透视之主要操作">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          Java 并发透视之主要操作（二）java 多线程的主要操作
+
+
+方法
+简介
+
+
+
+
+sleep(long)
+该方法使当前线程睡眠一定时间，单位为毫秒（ms）
+
+
+getPriority()
+该方法可以获取线程的优先级
+
+
+setPriority(int)
+该方法设置线程的优先级，但是并不能保证按这
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/posts/java/concurrency/java-concurrency-perspective-002-major-operations.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://asion.club/posts/java/concurrency/java-concurrency-perspective-001-overview.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Asion Lu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/assets/img/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Asion Lu's Blog">
     </span>
 
     
@@ -331,8 +692,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-24T12:07:01+08:00">
-                2017-03-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-17T12:07:01+08:00">
+                2017-08-17
               </time>
             
 
@@ -463,7 +824,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://luxuexian99.github.io/posts/testing/junit-totulrial-s1-001-index.html">
+    <link itemprop="mainEntityOfPage" href="http://asion.club/posts/docker/docker-009-docker-compose.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Asion Lu">
@@ -472,7 +833,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Asoin Lu's Blog">
+      <meta itemprop="name" content="Asion Lu's Blog">
     </span>
 
     
@@ -485,8 +846,8 @@
             
               
                 
-                <a class="post-title-link" href="/posts/testing/junit-totulrial-s1-001-index.html" itemprop="url">
-                  JUnit Tutorial 系列教程(一) JUnit概述
+                <a class="post-title-link" href="/posts/docker/docker-009-docker-compose.html" itemprop="url">
+                  （九）Docker docker-compose
                 </a>
               
             
@@ -502,8 +863,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-24T10:07:23+08:00">
-                2017-03-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-24T18:11:18+08:00">
+                2017-05-24
               </time>
             
 
@@ -513,39 +874,6 @@
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/testing/" itemprop="url" rel="index">
-                    <span itemprop="name">testing</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -553,7 +881,7 @@
 
           
           
-             <span id="/posts/testing/junit-totulrial-s1-001-index.html" class="leancloud_visitors" data-flag-title="JUnit Tutorial 系列教程(一) JUnit概述">
+             <span id="/posts/docker/docker-009-docker-compose.html" class="leancloud_visitors" data-flag-title="（九）Docker docker-compose">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -584,12 +912,12 @@
       
         
           
-          JUnit 系列教程(一) JUnit概述&emsp;&emsp;JUnit是Java编程语言的单元测试框架。JUnit在测试驱动开发中一直很重要，它起源于统称为xUnit的单元测试框架。
-Overview&emsp;&emsp;软件测试是检查应用程序的功能确保其按照要求运行的过程。单元测试是在开发
+          Docker Compose1.什么是Docker Compose？编排和配置容器集群的工具。
+编排：定义被部署的对象的各组成部分之间的耦合关系，部署流程中各个动作的执行顺序，部署过程所需要的依赖文件和被部署文件的存储位置和获取方式，以及如何验证部署成功。这些信息都会在编排工具中以指定的格式定义并保
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/testing/junit-totulrial-s1-001-index.html#more" rel="contents">
+            <a class="btn" href="/posts/docker/docker-009-docker-compose.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -635,7 +963,7 @@ Overview&emsp;&emsp;软件测试是检查应用程序的功能确保其按照要
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://luxuexian99.github.io/posts/java/java-leaning-road.html">
+    <link itemprop="mainEntityOfPage" href="http://asion.club/posts/docker/docker-008-dockerfile.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Asion Lu">
@@ -644,7 +972,7 @@ Overview&emsp;&emsp;软件测试是检查应用程序的功能确保其按照要
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Asoin Lu's Blog">
+      <meta itemprop="name" content="Asion Lu's Blog">
     </span>
 
     
@@ -657,8 +985,8 @@ Overview&emsp;&emsp;软件测试是检查应用程序的功能确保其按照要
             
               
                 
-                <a class="post-title-link" href="/posts/java/java-leaning-road.html" itemprop="url">
-                  Java leaning road 从菜佳娃到佳娃假购师
+                <a class="post-title-link" href="/posts/docker/docker-008-dockerfile.html" itemprop="url">
+                  （八）Docker Dockerfile
                 </a>
               
             
@@ -674,8 +1002,8 @@ Overview&emsp;&emsp;软件测试是检查应用程序的功能确保其按照要
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-21T21:48:57+08:00">
-                2017-03-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-24T18:07:23+08:00">
+                2017-05-24
               </time>
             
 
@@ -697,8 +1025,8 @@ Overview&emsp;&emsp;软件测试是检查应用程序的功能确保其按照要
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
+                  <a href="/categories/docker/" itemprop="url" rel="index">
+                    <span itemprop="name">docker</span>
                   </a>
                 </span>
 
@@ -714,7 +1042,7 @@ Overview&emsp;&emsp;软件测试是检查应用程序的功能确保其按照要
 
           
           
-             <span id="/posts/java/java-leaning-road.html" class="leancloud_visitors" data-flag-title="Java leaning road 从菜佳娃到佳娃假购师">
+             <span id="/posts/docker/docker-008-dockerfile.html" class="leancloud_visitors" data-flag-title="（八）Docker Dockerfile">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -745,12 +1073,14 @@ Overview&emsp;&emsp;软件测试是检查应用程序的功能确保其按照要
       
         
           
-          Java学习之路 从菜佳娃–&gt;佳娃假购师
-
-          
+          Dockerfile1.利用Dockerfile创建镜像什么是Dockerfile？
+定义：Dockerfile是一个文本格式的配置文件，用户可以使用Dockerfile快速创建自定义镜像。
+基本结构：
+Dockerfile由一行行的命令语句组成。并且支持以#开头的注释行。一般Dockerfile分
+          ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/java/java-leaning-road.html#more" rel="contents">
+            <a class="btn" href="/posts/docker/docker-008-dockerfile.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -796,7 +1126,7 @@ Overview&emsp;&emsp;软件测试是检查应用程序的功能确保其按照要
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://luxuexian99.github.io/posts/life/my-life-way.html">
+    <link itemprop="mainEntityOfPage" href="http://asion.club/posts/docker/docker-007-network.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Asion Lu">
@@ -805,7 +1135,7 @@ Overview&emsp;&emsp;软件测试是检查应用程序的功能确保其按照要
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Asoin Lu's Blog">
+      <meta itemprop="name" content="Asion Lu's Blog">
     </span>
 
     
@@ -818,8 +1148,8 @@ Overview&emsp;&emsp;软件测试是检查应用程序的功能确保其按照要
             
               
                 
-                <a class="post-title-link" href="/posts/life/my-life-way.html" itemprop="url">
-                  道德经
+                <a class="post-title-link" href="/posts/docker/docker-007-network.html" itemprop="url">
+                  （七）Docker Network
                 </a>
               
             
@@ -835,8 +1165,8 @@ Overview&emsp;&emsp;软件测试是检查应用程序的功能确保其按照要
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-17T15:31:36+08:00">
-                2017-01-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-24T18:04:40+08:00">
+                2017-05-24
               </time>
             
 
@@ -846,28 +1176,6 @@ Overview&emsp;&emsp;软件测试是检查应用程序的功能确保其按照要
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/life/" itemprop="url" rel="index">
-                    <span itemprop="name">life</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -875,7 +1183,7 @@ Overview&emsp;&emsp;软件测试是检查应用程序的功能确保其按照要
 
           
           
-             <span id="/posts/life/my-life-way.html" class="leancloud_visitors" data-flag-title="道德经">
+             <span id="/posts/docker/docker-007-network.html" class="leancloud_visitors" data-flag-title="（七）Docker Network">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -906,15 +1214,13 @@ Overview&emsp;&emsp;软件测试是检查应用程序的功能确保其按照要
       
         
           
-          道德经我们是谁    第一章    道, 可道非常道; 名, 可名非常名    无, 名天地之始; 有, 名万物之母
-
-故常无欲以观其妙。常有欲以观其徼。此两者同出而异名，同谓之玄。玄之又玄，众妙之门。
-天下皆知美之为美，斯恶矣；皆知善之为善，斯不善已。故有无相生，难易相成，长短相形，高下相
-倾，音
+          Docker网络1．容器对外服务当容器内运行一些网络应用，要让外部访问这些应用时，可以通过 -P 或 -p 参数来指定端口映射。
+使用 -P 映射时，Docker会随机映射一个49000 ～ 49900 的端口至容器内部开放的端口：
+docker run -d -P –name mysql mysq
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/life/my-life-way.html#more" rel="contents">
+            <a class="btn" href="/posts/docker/docker-007-network.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -960,7 +1266,7 @@ Overview&emsp;&emsp;软件测试是检查应用程序的功能确保其按照要
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://luxuexian99.github.io/posts/hexo-quick-start.html">
+    <link itemprop="mainEntityOfPage" href="http://asion.club/posts/docker/docker-006-data-manager.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Asion Lu">
@@ -969,7 +1275,7 @@ Overview&emsp;&emsp;软件测试是检查应用程序的功能确保其按照要
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Asoin Lu's Blog">
+      <meta itemprop="name" content="Asion Lu's Blog">
     </span>
 
     
@@ -982,8 +1288,8 @@ Overview&emsp;&emsp;软件测试是检查应用程序的功能确保其按照要
             
               
                 
-                <a class="post-title-link" href="/posts/hexo-quick-start.html" itemprop="url">
-                  Hexo Quick Start
+                <a class="post-title-link" href="/posts/docker/docker-006-data-manager.html" itemprop="url">
+                  （六）Docker Data Management and Volume
                 </a>
               
             
@@ -999,8 +1305,8 @@ Overview&emsp;&emsp;软件测试是检查应用程序的功能确保其按照要
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-27T04:56:25+08:00">
-                2016-10-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-24T18:00:16+08:00">
+                2017-05-24
               </time>
             
 
@@ -1010,28 +1316,6 @@ Overview&emsp;&emsp;软件测试是检查应用程序的功能确保其按照要
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">hexo</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -1039,7 +1323,7 @@ Overview&emsp;&emsp;软件测试是检查应用程序的功能确保其按照要
 
           
           
-             <span id="/posts/hexo-quick-start.html" class="leancloud_visitors" data-flag-title="Hexo Quick Start">
+             <span id="/posts/docker/docker-006-data-manager.html" class="leancloud_visitors" data-flag-title="（六）Docker Data Management and Volume">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1070,11 +1354,17 @@ Overview&emsp;&emsp;软件测试是检查应用程序的功能确保其按照要
       
         
           
-          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
+          数据管理1.数据卷(Data Volume)数据卷是一个可供容器使用的特殊目录，有如下特性：
+数据卷可以在容器之间共享和重用
+数据卷修改会立即生效
+数据卷的更新不会影响镜像
+如果有容器使用数据卷，该卷会一直存在
+在容器内创建数据卷
+在使用docker run的命令时，使用 -v 标记可以在容器内创建
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/hexo-quick-start.html#more" rel="contents">
+            <a class="btn" href="/posts/docker/docker-006-data-manager.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1120,7 +1410,7 @@ Overview&emsp;&emsp;软件测试是检查应用程序的功能确保其按照要
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://luxuexian99.github.io/posts/git-flow.html">
+    <link itemprop="mainEntityOfPage" href="http://asion.club/posts/docker/docker-005-repository.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Asion Lu">
@@ -1129,7 +1419,7 @@ Overview&emsp;&emsp;软件测试是检查应用程序的功能确保其按照要
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Asoin Lu's Blog">
+      <meta itemprop="name" content="Asion Lu's Blog">
     </span>
 
     
@@ -1142,8 +1432,8 @@ Overview&emsp;&emsp;软件测试是检查应用程序的功能确保其按照要
             
               
                 
-                <a class="post-title-link" href="/posts/git-flow.html" itemprop="url">
-                  Git版本控制与Git Flow工作流程
+                <a class="post-title-link" href="/posts/docker/docker-005-repository.html" itemprop="url">
+                  （五）Docker Repository
                 </a>
               
             
@@ -1159,8 +1449,8 @@ Overview&emsp;&emsp;软件测试是检查应用程序的功能确保其按照要
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-08-26T20:33:25+08:00">
-                2016-08-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-24T17:58:11+08:00">
+                2017-05-24
               </time>
             
 
@@ -1182,19 +1472,8 @@ Overview&emsp;&emsp;软件测试是检查应用程序的功能确保其按照要
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/VCS/" itemprop="url" rel="index">
-                    <span itemprop="name">VCS</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/VCS/git/" itemprop="url" rel="index">
-                    <span itemprop="name">git</span>
+                  <a href="/categories/docker/" itemprop="url" rel="index">
+                    <span itemprop="name">docker</span>
                   </a>
                 </span>
 
@@ -1210,7 +1489,7 @@ Overview&emsp;&emsp;软件测试是检查应用程序的功能确保其按照要
 
           
           
-             <span id="/posts/git-flow.html" class="leancloud_visitors" data-flag-title="Git版本控制与Git Flow工作流程">
+             <span id="/posts/docker/docker-005-repository.html" class="leancloud_visitors" data-flag-title="（五）Docker Repository">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1241,19 +1520,342 @@ Overview&emsp;&emsp;软件测试是检查应用程序的功能确保其按照要
       
         
           
-          GIT版本控制与工作流程修订历史记录
-
-日期：2016-08-26版本：0.1修订人：Asion Lu备注：修订版
-
-引言编写的目的
-通过规范化的流程，使得产品、开发与测试等各个部门更高效的协同工作。
-通过规范化的流程使得产品高效稳定运行。
-
-背景在多组员，多项目等环境进行协同工作时，如果没有统一规
+          仓库(Repository)1.Docker Hub仓库是集中存放镜像的地方。
+目前Docker官方仓库维护了一个公共仓库https://hub.docker.com，其中已经包括15000多个的镜像。
+大部分需求都可以通过在Docker Hub中直接下来镜像来实现。
+登录
+可以通过执行docker
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/git-flow.html#more" rel="contents">
+            <a class="btn" href="/posts/docker/docker-005-repository.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://asion.club/posts/docker/docker-004-container-operation.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Asion Lu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/assets/img/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Asion Lu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/posts/docker/docker-004-container-operation.html" itemprop="url">
+                  （四）Docker Container Operation
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-24T17:45:11+08:00">
+                2017-05-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/docker/" itemprop="url" rel="index">
+                    <span itemprop="name">docker</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/posts/docker/docker-004-container-operation.html" class="leancloud_visitors" data-flag-title="（四）Docker Container Operation">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          容器的常用操作1．创建容器Docker的容器十分轻量级，用户可以随时创建或删除容器。
+新建容器：docker create
+Example：docker create –ti ubuntu
+说明：使用docker create命令创建的容器处于停止状态，可以使用docker start命令启动它。
+
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/posts/docker/docker-004-container-operation.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://asion.club/posts/docker/docker-003-image-operation.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Asion Lu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/assets/img/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Asion Lu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/posts/docker/docker-003-image-operation.html" itemprop="url">
+                  （三）Docker Image Operation
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-24T17:30:11+08:00">
+                2017-05-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/docker/" itemprop="url" rel="index">
+                    <span itemprop="name">docker</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/posts/docker/docker-003-image-operation.html" class="leancloud_visitors" data-flag-title="（三）Docker Image Operation">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          镜像的常用操作1.获取镜像：命令：
+docker pull //:
+说明：镜像是Docker运行容器的前提。用户可以使用docker pull 命令从网络上下载镜像。对于镜像来说，如果不显式地指定tag,则默认会选择latest标签，即下载仓库中最新版本的镜像。
+例子：docker pull hub
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/posts/docker/docker-003-image-operation.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1293,6 +1895,10 @@ Overview&emsp;&emsp;软件测试是检查应用程序的功能确保其按照要
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1335,7 +1941,7 @@ Overview&emsp;&emsp;软件测试是检查应用程序的功能确保其按照要
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1346,7 +1952,7 @@ Overview&emsp;&emsp;软件测试是检查应用程序的功能确保其按照要
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1357,7 +1963,7 @@ Overview&emsp;&emsp;软件测试是检查应用程序的功能确保其按照要
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1378,7 +1984,7 @@ Overview&emsp;&emsp;软件测试是检查应用程序的功能确保其按照要
           
             
               <span class="links-of-author-item">
-                <a href="https://github.com/luxuexian99" target="_blank" title="github">
+                <a href="https://github.com/search-cloud" target="_blank" title="github">
                   
                     <i class="fa fa-fw fa-globe"></i>
                   
