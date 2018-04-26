@@ -9,6 +9,7 @@ Spring Internals 深入解析Spring架构与设计原理
 ----
 
 ## Preface
+
    - Spring的设计理念和架构
    - Spring core
    - Spring AOP
@@ -18,7 +19,6 @@ Spring Internals 深入解析Spring架构与设计原理
    - Spring Data
    - Spring Boot
    - Spring Cloud
-   - Spring的设计理念和架构
 
 ### Spring core
    Spring core

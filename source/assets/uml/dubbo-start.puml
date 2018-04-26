@@ -1,0 +1,15 @@
+@startuml
+Server -> Container: start
+Container --> Provider: init
+Provider -> Register: reg and subscribe Configurators
+Register --> Provider: notify
+
+Consumer <- Client : start
+Consumer --> Register: reg and subscribe Provider Configurators and Routers
+Register --> Consumer: notify
+
+Consumer --> Provider: build long connection
+
+Provider -> Monitor: Timer send Statistics
+Consumer -> Monitor: Timer send Statistics
+@enduml

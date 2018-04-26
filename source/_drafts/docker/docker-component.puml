@@ -1,0 +1,47 @@
+@startuml
+
+package "System Virtual" {
+    package {
+        [App...] -down- [Library..]
+        [Library..] -down-[Guest Kernel..]
+    }
+    package {
+        [App2]  -down-  [Library.2]
+        [Library.2] -down-[Guest Kernel2]
+    }
+    package {
+        [App1]  -down-  [Library.1]
+        [Library.1]-down- [Guest Kernel1]
+    }
+
+    package {
+        [Guest Kernel..] -down-> [Hypervisor]
+        [Guest Kernel2] -down-> [Hypervisor]
+        [Guest Kernel1] -down-> [Hypervisor]
+        [Hypervisor] -down-> [Host Kernel]
+        [Host Kernel] -down-> [Hardware]
+    }
+}
+
+package "Container Virtual" {
+    package {
+        [APP...] -down- [Library...]
+    }
+    package {
+        [APP2]  -down-  [Library2]
+    }
+    package {
+        [APP1]  -down-  [Library1]
+    }
+
+    package {
+        [Library...] --down--> [Host Kernel...]
+        [Library2] --down--> [Host Kernel...]
+        [Library1] --down--> [Host Kernel...]
+        [Host Kernel...] -down-> [Hardware...]
+    }
+}
+
+
+
+@enduml

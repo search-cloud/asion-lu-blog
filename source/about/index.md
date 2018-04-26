@@ -14,7 +14,7 @@ comments: false
 [luxuexian99@gmail.com](https://luxuexian99@gmail.com)
 [Asion Lu's github](https://github.com/search-cloud "https://github.com/search-cloud")
 {% endnote %}
-<center>
+<div style="text-align: center;">
 Asion's wechat
-<img src="../assets/img/wechat.jpg" width="30%" height="30%" />
-</center>
+<img src="../assets/img/wechat.jpg" width="202" height="268" />
+</div>

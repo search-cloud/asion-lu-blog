@@ -1,0 +1,33 @@
+@startuml
+
+title: 启动时序图
+participant Server #EAF048
+participant Container #FFFFFF
+participant Provider #9FF048
+participant Register #F6D6FF
+participant Client #EAF048
+participant Consumer #9FF048
+participant Monitor #82A6f5
+
+Register -> Register: start
+
+group Service
+Server -> Container: 1.start
+Container -> Provider: 2.init
+Provider -> Register: 3.reg and subscribe Configurators
+Register -> Provider: 4.notify changes
+end
+
+group Client
+Consumer <[#2A5200]- Client : 5.init
+Consumer -[#2A5200]> Register: 6.reg and subscribe Provider Configurators and Routers
+Register -[#2A5200]-> Consumer: 7.notify changes
+
+Consumer -[#2A5200]> Provider: 8.build long connection
+end
+
+Monitor -> Monitor: start
+
+Provider --> Monitor: Timer send Statistics
+Monitor <-- Consumer: Timer send Statistics
+@enduml

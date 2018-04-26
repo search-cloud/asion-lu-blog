@@ -1,6 +1,6 @@
 ---
 title: Java Concurrency Perspective Overview (一) </br> Java 并发透视之初窥探（一）
-date: 2017-03-24 12:07:01
+date: 2017-08-17 12:07:01
 categories: [java, concurrency]
 tags: [java, concurrency]
 ---
@@ -40,6 +40,7 @@ Java是一种支持多线程编程的语言，意味着，我们可以使用Java
 ----
 
 以下是生命周期的各个阶段简述：
+
 - **新的（New）** - 新线程在新的状态下开始其生命周期。直到程序启动线程为止，它保持在这种状态。它也被称为**新生线程**。
 - **可运行的（Runnable）** - 新诞生的线程启动后，该线程可以运行。该状态的线程被认为正在执行其任务。但是，可能还未正式运行，可能在等待资源，如：CPU。
 - **运行中的（Running）** - 新诞生的线程启动后，如果，所有的准备条件已经满足，该线程会从准备运行状态进入运行状态，执行任务。
@@ -182,6 +183,7 @@ public class TestThread {
 ```
 
 ### 我们来简单分析一下多线程的程序
+
 - 首先，我们的RunnableDemo实现的Runnable接口，那必须重写run()方法，run()就是线程running运行的方法，是线程体。
 - 当new一个Thread实例，传入我们的RunnableDemo实例，这时线程生命周期处在新建（new）阶段；
 - 然后，当调用Thread实例的start()方法时，说明线程已经准备就绪，转到了就绪（Runnable）状态；
