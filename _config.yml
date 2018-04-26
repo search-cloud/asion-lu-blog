@@ -75,7 +75,7 @@ theme: next #maupassant #jekyll #hueman #yilia #next #material #landscape
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:search-cloud/asion-lu-blog.git
+  repo: git@github.com:search-cloud/search-cloud.github.io.git
   branch: master
 
 
