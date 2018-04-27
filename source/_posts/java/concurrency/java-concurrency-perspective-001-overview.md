@@ -1,8 +1,8 @@
 ---
 title: Java Concurrency Perspective Overview (一) </br> Java 并发透视之初窥探（一）
 date: 2017-08-17 12:07:01
-categories: [java, concurrency]
-tags: [java, concurrency]
+categories: [Java, Concurrency]
+tags: [Java, Concurrency]
 ---
 
 Java 并发透视之初窥探（一）
