@@ -1,8 +1,8 @@
 ---
 title: elasticsearch-00-basic-concepts.md
 date: 2018-06-06 11:20:20
-categories:
-tags:
+categories: search
+tags: [search, elasticsearch]
 ---
 
 
@@ -33,9 +33,7 @@ In a single cluster, you can define as many indexes as you want.
 
 ## Type
 
-|                                                           |                                                       |
-|:----------------------------------------------------------|:------------------------------------------------------|
-|                     ![warning](../../assets/img/elasticsearch/warning.png) | Deprecated in 6.0.0.<br> See Removal of mapping types |
+Warning Deprecated in 6.0.0. See Removal of mapping types
 
 A type used to be a logical category/partition of your index to allow you to store different types of documents in the same index, eg one type for users, another type for blog posts.  It is no longer possible to create multiple types in an index, and the whole concept of types will be removed in a later version.  See Removal of mapping types for more.
 

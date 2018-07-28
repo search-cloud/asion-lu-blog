@@ -3,10 +3,10 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Asion Lu's Blog
+title: Vincent Lu's Blog
 subtitle: A little bit.
 description: I'm not a programmer, I'm a technology farmer!
-author: Asion Lu
+author: Vincent Lu
 language: zh-CN # en
 timezone: Asia/Shanghai
 favicon: /assets/img/favicon.png

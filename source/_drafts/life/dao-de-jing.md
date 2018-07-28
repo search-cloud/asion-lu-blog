@@ -1,10 +1,9 @@
 ---
 title: 道德经
 date: 2017-01-17 15:31:36
-categories: 国学
+categories: GuoXue
 tags: 
-    - 国学
-    - 道德经
+    - GuoXue
 ---
 
 道德经
