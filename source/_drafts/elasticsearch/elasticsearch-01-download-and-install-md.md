@@ -108,7 +108,7 @@ The following settings must be considered before going to production:
 - Heap dump path
 - GC logging
 
-### Advanced TCP Settingsedit
+### Advanced TCP Settings edit
 Any component that uses TCP (like the HTTP and Transport modules) share the following settings:
 
 network.tcp.no_delay
@@ -135,11 +135,13 @@ The size of the TCP receive buffer (specified with size units). By default not e
 
 ## System important setting
 
+```
 /etc/security/limit.conf
 kfk	- 	nofile	65536
 \# allow user 'kfk' mlockall
 kfk soft memlock unlimited
 kfk hard memlock unlimited
+```
 
 sudo su  
 ulimit -n 65536
