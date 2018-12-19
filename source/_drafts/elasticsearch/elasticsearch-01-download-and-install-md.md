@@ -7,7 +7,16 @@ tags: [search, elasticsearch]
 
 Elasticdsearch 下载与安装
 ====================
-
+- [Elasticdsearch 下载与安装](#elasticdsearch-%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85)
+  - [下载与安装](#%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85)
+  - [.zip 包和 .tar.gz 包目录结构概览](#zip-%E5%8C%85%E5%92%8C-targz-%E5%8C%85%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E6%A6%82%E8%A7%88)
+  - [Configuring Elasticsearch](#configuring-elasticsearch)
+    - [默认的 JVM 配置：](#%E9%BB%98%E8%AE%A4%E7%9A%84-jvm-%E9%85%8D%E7%BD%AE)
+    - [重要的配置](#%E9%87%8D%E8%A6%81%E7%9A%84%E9%85%8D%E7%BD%AE)
+    - [Advanced TCP Settings edit](#advanced-tcp-settings-edit)
+  - [System important setting](#system-important-setting)
+      - [Virtual memoryedit](#virtual-memoryedit)
+  - [启动](#%E5%90%AF%E5%8A%A8)
 
 Elasticsearch的使用，基本可以开箱即用。下面我们来简单说明：
 
@@ -18,11 +27,11 @@ Linux CentOS-7
 JDK version 1.8.0_131
 
 下载：
-我们以 Linux 下的 .tar.gz 压缩包来安装，版本：5.6.9，大家自行选择自己需要的版本
+我们以 Linux 下的 .tar.gz 压缩包来安装，版本：5.6.14，大家自行选择自己需要的版本
 ```shell
 wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-{version}.tar.gz
-wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.9.tar.gz
-wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.9.tar.gz.sha512
+wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.14.tar.gz
+wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.14.tar.gz.sha512
 # 这一步做个校验
 shasum -a 512 -c elasticsearch-5.6.9.tar.gz.sha512 
 ```
@@ -35,6 +44,11 @@ tar -xzf elasticsearch-5.6.9.tar.gz
 
 进入解压后的路径：
 cd elasticsearch-5.6.9/
+
+创建elastic用户
+useradd –d /usr/elastic -m elastic
+
+su elastic
 
 运行：
 ./bin/elasticsearch
@@ -52,6 +66,15 @@ curl -v 127.0.0.1:9200
 
 下面我们就来一步步配置部署：
 
+0. 保证 SSH 免密码连接各个节点
+```
+    ssh-keygen -t rsa
+    cd ~/.ssh
+    cat id_rsa.pub >> authorized_keys
+    vim authorized_keys
+    copy pubkey and pase
+    chmod 400 authorized_keys
+```
 1. 命令行启动时添加配置参数：
 2. 在配置文件中添加配置参数：
 
@@ -151,6 +174,13 @@ ulimit -u 4096
 
 #### Virtual memoryedit
 sysctl -w vm.max_map_count=262144
+
+## 启动
+
+后台启动：
+```
+./bin/elasticsearch -d -p pid
+```
 
 
 

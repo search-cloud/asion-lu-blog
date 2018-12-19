@@ -8,13 +8,17 @@ comments: false
 ### I'm not a programmer, I'm a technology farmer!
 {% endnote %}
 
+{% note warning %}
+一个会弹吉他，喜欢打篮球的老好人！
+一个谨慎，有耐心，有想法的技术者！
+{% endnote %}
 
 {% note primary %}
-[Asion Lu](https://search-cloud.github.io/)
+[Vincent Lu](https://search-cloud.github.io/)
 [luxuexian99@gmail.com](https://luxuexian99@gmail.com)
-[Asion Lu's github](https://github.com/search-cloud "https://github.com/search-cloud")
+[Vincent Lu's github](https://github.com/search-cloud "https://github.com/search-cloud")
 {% endnote %}
 <div style="text-align: center;">
-Asion's wechat
+想看我秀吉他，和我打篮球，一起撸代码的可以加微信：
 <img src="../assets/img/wechat.jpg" width="202" height="268" />
 </div>
