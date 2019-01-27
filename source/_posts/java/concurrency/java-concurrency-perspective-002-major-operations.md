@@ -1,14 +1,21 @@
 ---
 title: Java Concurrency Perspective Major Operations (二) </br> Java 并发透视之主要操作
 date: 2017-08-17 14:0:01
-categories: [java, concurrency]
-tags: [java, concurrency]
+categories: [Java, Concurrency]
+tags: [Java, Concurrency]
 ---
+
+- [Java 并发透视之主要操作（二）](#java-%E5%B9%B6%E5%8F%91%E9%80%8F%E8%A7%86%E4%B9%8B%E4%B8%BB%E8%A6%81%E6%93%8D%E4%BD%9C%E4%BA%8C)
+  - [Java 多线程的主要操作概览](#java-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%B8%BB%E8%A6%81%E6%93%8D%E4%BD%9C%E6%A6%82%E8%A7%88)
+  - [sleep()](#sleep)
+  - [setPriority(int) & getPriority()](#setpriorityint--getpriority)
+  - [yield()](#yield)
+  - [join()](#join)
+  - [wait() & notify()/notifyAll()](#wait--notifynotifyall)
 
 # Java 并发透视之主要操作（二）
 
-
-## java 多线程的主要操作
+## Java 多线程的主要操作概览
 
 |         方法          | 简介                                                 |
 |:--------------------:|:----------------------------------------------------|
@@ -24,7 +31,7 @@ tags: [java, concurrency]
 ## sleep()
 该方法使当前线程睡眠一定时间，单位为毫秒（ms）
 还是上一节的例子，但是我们在run()方法的循环体中添加了 Thread.sleep(50); 语句。
-这样输出的结果就是，Thread-1：倒计时一次，Thread-2：倒计时一次。
+这样输出的结果就是，Thread-1：倒计时一次，然后，Thread-2：倒计时一次。
 ```
 Creating Thread-1
 Starting Thread-1
@@ -495,3 +502,6 @@ Thread main1 finish.
 
 ## wait() & notify()/notifyAll()
 
+详见下一篇文章 [Java并发透视之线程间通信](/posts/java/concurrency/java-concurrency-perspective-003-inter-threads-communication.html)
+
+笔者毕竟能力有限，难免有疏漏，如果，大家发现文章有何错误，请不吝赐教。谢谢！
