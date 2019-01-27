@@ -1,12 +1,12 @@
 ---
-title: （五）Docker Repository
+title: Docker Journal（五）Repository
 date: 2017-05-24 17:58:11
 categories: docker
 tags: docker
 ---
 
 # 仓库(Repository)
-## 1.Docker Hub
+## 一.Docker Hub
 
 仓库是集中存放镜像的地方。
 
@@ -24,7 +24,7 @@ tags: docker
 
 用户无需登录可以通过 docker search命令来查找官方仓库中的镜像，并利用docker pull 下载到本地，可以通过docker push 命令将本地镜像推送到docker hub。
 
-## 2.创建和使用私有仓库
+## 二.创建和使用私有仓库
 
 创建私有仓库
 
@@ -66,7 +66,7 @@ docker启动参数配置：
 
 
 
-## 3.仓库加速服务
+## 三.仓库加速服务
 
 加速下载官方镜像。
 
@@ -80,7 +80,7 @@ docker启动参数配置：
 
 下载第三方官方仓库。
 
-## 4.仓库管理
+## 四.仓库管理
 
 Registry Web UI
 

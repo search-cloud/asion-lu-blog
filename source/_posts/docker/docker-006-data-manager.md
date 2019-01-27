@@ -1,12 +1,12 @@
 ---
-title: （六）Docker Data Management and Volume
+title: Docker Journal（六）Data Management and Volume
 date: 2017-05-24 18:00:16
 categories:
 tags:
 ---
 
 # 数据管理
-## 1.数据卷(Data Volume)
+## 一.数据卷(Data Volume)
 
 数据卷是一个可供容器使用的特殊目录，有如下特性：
 
@@ -50,7 +50,7 @@ echo ${PWD} 命令标识当前目录。
 
 
 
-## 2.数据卷容器
+## 二.数据卷容器
 
 数据卷容器用于用户需要在容器间共享一些持续更新的数据，数据卷容器专门提供数据卷供其它容器挂载使用。
 
@@ -76,7 +76,7 @@ docker run -d --name db2 --volumes-from db1 -ti ubuntu bash
 
 
 
-## 3.利用数据卷迁移容器
+## 三.利用数据卷迁移容器
 
 可以利用数据卷容器对其中的数据卷进行备份、恢复，以实现数据的迁移。
 
