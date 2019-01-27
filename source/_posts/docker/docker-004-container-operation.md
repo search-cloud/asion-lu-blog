@@ -67,9 +67,18 @@ docker stop <container_id>
 ```
 注意：
 当容器中的应用终结时，容器也会自动停止。
-查看终止的容器：docker ps -a
-查看运行的容器：docker ps
-重新启动容器：docker start <container_id>
+查看终止的容器：
+```
+docker ps -a
+```
+查看运行的容器：
+```
+docker ps
+```
+重新启动容器：
+```
+docker start <container_id>
+```
 
 ## 三．进入容器
 
